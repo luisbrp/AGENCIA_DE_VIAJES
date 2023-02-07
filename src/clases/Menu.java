@@ -17,7 +17,7 @@ public class Menu {
 		public static final int ID_HABITACION_RESERVA=5;
 		public static final int FECHA_RESERVA_INICIO_FIN=6;
 		
-		
+		 
 		public static final int ID_ANULAR_RESERVA=1;
 		
 		
