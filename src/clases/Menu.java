@@ -22,12 +22,10 @@ public class Menu {
 		
 		
 		public static final int DATOS_HOTEL=1;
-		public static final int REGISTRAR_HOTEL=2;
 		public static final int CREAR_HABITACION_SALIR=3;
 		
 		//si crea habitación
 		public static final int DATOS_HABITACION=1;
-		public static final int GUARDAR_HABITACION=2;
 		public static final int 
 		
 		
