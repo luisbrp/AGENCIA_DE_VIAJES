@@ -8,7 +8,7 @@ public class Menu {
 		public static final int SALIR=0;
 
 		public static final int DATOS_CLIENTE=1;
-		public static final int VISUALIZAR_CLIENTES=2;
+		public static final int VISUALIZAR_CLIENTES=2 ;
 		
 		public static final int DATOS_RESERVA=1;
 		public static final int CLIENTE_REGISTRADO=2;
