@@ -46,7 +46,7 @@ public class Menu {
 			
 		  public static void motrarMenuClientes() {
 			  	System.out.println("");
-				System.out.println("------MENU PRINCIPAL-------");
+				System.out.println("------MENU CLIENTES-------");
 				System.out.println( DATOS_CLIENTE + ". Introducir datos del clientes");
 				System.out.println( VISUALIZAR_CLIENTES + ". Realizar reserva");
 				System.out.println(SALIR + ". Salir");
@@ -56,7 +56,7 @@ public class Menu {
 		  
 		public static void mostrarMenuHacerReserva() {
 			System.out.println("");
-			System.out.println("------MENU PRINCIPAL-------");
+			System.out.println("------MENU RESERVAS-------");
 			System.out.println( DATOS_RESERVA + ". Introducir datos de la reserva");
 			System.out.println( CLIENTE_REGISTRADO + ". Introducir datos de la reserva");
 			System.out.println( BUSCAR_HOTEL + ". Introducir datos de la reserva");
@@ -69,7 +69,7 @@ public class Menu {
 		
 		public static void mostrarMenuHotel() {
 			System.out.println("");
-			System.out.println("------MENU PRINCIPAL-------");
+			System.out.println("------MENU HOTEL-------");
 			System.out.println( DATOS_RESERVA + ". Introducir datos de la reserva");
 			System.out.println( CLIENTE_REGISTRADO + ". Introducir datos de la reserva");
 			System.out.println( BUSCAR_HOTEL + ". Introducir datos de la reserva");
