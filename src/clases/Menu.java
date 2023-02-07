@@ -27,8 +27,7 @@ public class Menu {
 			public static final int DATOS_HOTEL=1;
 			public static final int CREAR_HABITACION_SALIR=3;
 			
-			//si crea habitación
-			public static final int DATOS_HABITACION=1;
+			
 			
 			
 			
@@ -70,15 +69,13 @@ public class Menu {
 		public static void mostrarMenuHotel() {
 			System.out.println("");
 			System.out.println("------MENU HOTEL-------");
-			System.out.println( DATOS_RESERVA + ". Introducir datos de la reserva");
-			System.out.println( CLIENTE_REGISTRADO + ". Introducir datos de la reserva");
-			System.out.println( BUSCAR_HOTEL + ". Introducir datos de la reserva");
-			System.out.println( VISUALIZAR_HABITACIONES_HOTEL + ". Introducir datos de la reserva");
-			System.out.println( ID_HABITACION_RESERVA + ". Introducir datos de la reserva");
-			System.out.println( FECHA_RESERVA_INICIO_FIN + ". Introducir datos de la reserva");
+			System.out.println( DATOS_HOTEL + ". Introducir datos del hotel");
+			System.out.println( CREAR_HABITACION_SALIR+ ". Introducir datos de la reserva");
 			System.out.println(SALIR + ". Salir");
 			System.out.println("");
 		}
+		
+		
 			
 			
 			
