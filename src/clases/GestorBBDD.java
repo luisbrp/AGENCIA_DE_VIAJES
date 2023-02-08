@@ -20,14 +20,14 @@ public class GestorBBDD extends Conector {
 	
 	public void modificarCliente(Cliente cliente) throws SQLException {
 
-		PreparedStatement preparedSt = con.prepareStatement("UPDATE clientes SET dni = (?), nombre= (?),apellidos= (?),direccion= (?),"
+		PreparedStatement preparedSt = con.prepareStatement("UPDATE clientes SET  nombre= (?),apellidos= (?),direccion= (?),"
 		+ "localidad = (?) WHERE dni = (?);");
 		
-		preparedSt.setString(1, cliente.getDni());
-		preparedSt.setString(2, cliente.getNombre());
-		preparedSt.setString(3, cliente.getApellidos());
-		preparedSt.setString(4, cliente.getDireccion());
-		preparedSt.setString(5, cliente.getLocalidad());
+		preparedSt.setString(5, cliente.getDni());
+		preparedSt.setString(1, cliente.getNombre());
+		preparedSt.setString(2, cliente.getApellidos());
+		preparedSt.setString(3, cliente.getDireccion());
+		preparedSt.setString(4, cliente.getLocalidad());
 		
 		preparedSt.execute();
 	}
