@@ -10,8 +10,10 @@ public class Menu {
 			public static final int SALIR=0;
 
 			// menu cliente
-			public static final int DATOS_CLIENTE=1;
-			public static final int VISUALIZAR_CLIENTES=2 ;
+			final static int INSERTAR_CLIENTE=1;
+			final static int ELIMINAR_CLIENTE=2;
+			final static int MODIFICAR_CLIENTE = 3;
+
 			
 			// menu reserva
 			public static final int DATOS_RESERVA=1;
@@ -46,8 +48,9 @@ public class Menu {
 		  public static void motrarMenuClientes() {
 			  	System.out.println("");
 				System.out.println("------MENU CLIENTES-------");
-				System.out.println( DATOS_CLIENTE + ". Introducir datos del clientes");
-				System.out.println( VISUALIZAR_CLIENTES + ". Realizar reserva");
+				System.out.println( INSERTAR_CLIENTE + ". Insertar cliente");
+				System.out.println( ELIMINAR_CLIENTE + ". Eliminar cliente");
+				System.out.println( MODIFICAR_CLIENTE + ". Modificar cliente");
 				System.out.println(SALIR + ". Salir");
 				System.out.println("");
 				
