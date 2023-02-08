@@ -10,7 +10,7 @@ protected Connection con;
 	public void conectar() {
 		try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				String url = "jdbc:mysql://localhost/hotel";
+				String url = "jdbc:mysql://localhost/agencia_viajes";
 				con = (Connection) DriverManager.getConnection(url, "root", "");
 		} catch (Exception e) {
 			e.printStackTrace();
