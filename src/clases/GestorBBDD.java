@@ -32,6 +32,15 @@ public class GestorBBDD extends Conector {
 			preparedSt= con.prepareStatement("INSERT INTO `habitaciones`(`id`, `id_hotel`, "
 					+ "`numero`, `descripcion`, `precio`)"
 					+ "VALUES (?,?,?,?,?)");
+			preparedSt.setInt(1, habitacion.getId());
+			preparedSt.setInt(2, habitacion.getId_hotel());
+			preparedSt.setString(3,habitacion.getNumero());
+			preparedSt.setString(4, habitacion.getDescripcion());
+			preparedSt.setDouble(5, habitacion.getPrecio());
+			
+			
+			preparedSt.execute();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
