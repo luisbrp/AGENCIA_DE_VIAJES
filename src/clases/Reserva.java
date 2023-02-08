@@ -2,7 +2,7 @@ package clases;
 
 import java.sql.Date;
 
-public class Reservas {
+public class Reserva {
 	private int id;
 	private int habitacion;
 	private String dni;

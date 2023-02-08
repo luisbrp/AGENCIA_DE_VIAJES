@@ -2,7 +2,6 @@ package clases;
 
 import java.util.Scanner;
 
-import Clases.Libro;
 
 public class FormularioDeDatos {
 
@@ -20,7 +19,10 @@ public class FormularioDeDatos {
 		cliente.setApellidos(scan.nextLine());
 		
 		System.out.println("introduce el numero de paginas del libro");
-		cliente.setdireccion(scan.nextLine());
+		cliente.setDireccion(scan.nextLine());
+		
+		System.out.println("introduce el numero de paginas del libro");
+		cliente.setDireccion(scan.nextLine());
 		
 		return cliente;
 	}

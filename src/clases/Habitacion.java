@@ -1,6 +1,6 @@
 package clases;
 
-public class Habitaciones {
+public class Habitacion {
 	private int id;
 	private int id_hotel;
 	private String numero;
