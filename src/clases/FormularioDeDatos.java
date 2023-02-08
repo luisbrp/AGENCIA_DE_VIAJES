@@ -65,43 +65,32 @@ public class FormularioDeDatos {
 	
 	
 
-	public void pedirDatosReserva(Reserva reserva, Scanner scan) {
-		Habitacion habitacion = new Habitacion();
-		Hotel hotel = new Hotel();
-		Cliente cliente = new Cliente();
+	public Reserva pedirDatosReserva(Scanner scan) {
 		
-		System.out.println("Introduce el dni del cliente:");
-		cliente.setDni(scan.nextLine());
-		
-		System.out.println("Introduce el id del hotel:");
-		hotel.setId(Integer.parseInt(scan.nextLine()));
-		
-		
-		
-		//Mostrar las habitaciones del hotel
-		
+		Reserva reserva = new Reserva();
 		
 		System.out.println("Introduce el id de la habitacion:");
-		habitacion.setId(Integer.parseInt(scan.nextLine()));
+		reserva.setId_Habitacion(Integer.parseInt(scan.nextLine()));
+
+		System.out.println("Introduce el dni:");
+		reserva.setDni(scan.nextLine());
 		
-		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
-		System.out.println("Introduce desde cuando sera la reserva:");
-		String desde = scan.nextLine();
+		SimpleDateFormat desde = new SimpleDateFormat("dd/MM/yyyy");
+		System.out.println("Introduce desde cuando se realiza la reserva:"+desde);
 		try {
-			Date fechaLeida = sdf1.parse(desde);
+			reserva.setDesde((java.sql.Date)desde.parse(scan.nextLine()));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
-		System.out.println("Introduce hasta cuando sera la reserva:");
-		
-		
-		
-		
-			
+		SimpleDateFormat hasta = new SimpleDateFormat("dd/MM/yyyy");
+		System.out.println("Introduce hasta cuando se realizara la reserva:"+ hasta);
+		try {
+			reserva.setHasta((java.sql.Date)hasta.parse(scan.nextLine()));
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
-	
+		
+		return reserva;
+	}
 }
