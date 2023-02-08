@@ -7,20 +7,55 @@ public class GestorBBDD extends Conector{
 		
 	PreparedStatement pst;
 	
-	public void realizarReservas (Reserva reserva) throws SQLException {
+	public void realizarReservas (Reserva reserva)  {
 		
 		Cliente cliente = new Cliente();
 		Habitacion habitacion = new Habitacion();
 		
-		pst = con.prepareStatement("INSERT INTO reservas (id, id_habitacion, dni, desde, hasta) VALUES (?,?,?,?,?)");
+		try {
+			pst = con.prepareStatement("INSERT INTO reservas (id, id_habitacion, dni, desde, hasta) VALUES (?,?,?,?,?)");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		pst.setInt(1, reserva.getId());
-		pst.setInt(2, habitacion.getId());
-		pst.setString(3, cliente.getDni());
-		pst.setDate(4, new java.sql.Date(reserva.getDesde().getTime()));
-		pst.setDate(5, new java.sql.Date(reserva.getHasta().getTime()));
+		try {
+			pst.setInt(1, reserva.getId());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pst.setInt(2, habitacion.getId());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pst.setString(3, cliente.getDni());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pst.setDate(4, new java.sql.Date(reserva.getDesde().getTime()));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pst.setDate(5, new java.sql.Date(reserva.getHasta().getTime()));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		pst.execute();
+		try {
+			pst.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		System.out.println("La reserva se ha realizado con exito!");
 		
