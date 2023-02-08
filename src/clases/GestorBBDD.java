@@ -26,4 +26,15 @@ public class GestorBBDD extends Conector{
 		
 	}
 	
+	public void anularReserva(Reserva reserva) throws SQLException {
+		
+		pst = con.prepareStatement("DELETE FROM reservas WHERE id=? ;");
+		
+		pst.setInt(1, reserva.getId());
+		
+		pst.execute();
+		
+		System.out.println("La reserva ha sido anulada con exito!");
+	}
+	
 }
