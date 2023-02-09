@@ -13,9 +13,6 @@ public class FormularioDeDatos {
 		int estrellas;
 		String compania;
 		
-		scan.nextLine();
-		System.out.println(" Introducir datos del hotel:");
-		System.out.println("------");
 		
 		System.out.println("Introduce el cif de hotel");
 		cif= scan.nextLine();
@@ -69,7 +66,6 @@ public class FormularioDeDatos {
 		numero= scan.nextLine();
 		
 		System.out.println("Introduce la descripcion de la habitación");
-		scan.nextLine();
 		descripcion= scan.nextLine();
 		
 		System.out.println("Introduce el precio de la habitación");

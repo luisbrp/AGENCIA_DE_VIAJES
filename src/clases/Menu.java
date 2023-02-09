@@ -75,14 +75,15 @@ public class Menu {
 		public static void mostrarMenuHotel() {
 			System.out.println("");
 			System.out.println("------MENU HOTEL-------");
-			System.out.println(" Introducir datos del hotel");
+			System.out.println(" Introducir datos del hotel:");
+			System.out.println("----------------------------");
 			
 			
 		}
 		
 		public static void mostrarMenuHabitacionSalir() {
 			System.out.println(CREAR_HABITACION + ". Crear habitacion");
-			System.out.println( SALIR+ "salir");
+			System.out.println( SALIR+ ". salir");
 			System.out.println("");
 		}
 		

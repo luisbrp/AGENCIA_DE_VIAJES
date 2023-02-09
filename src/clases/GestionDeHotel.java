@@ -20,11 +20,10 @@ public class GestionDeHotel {
 		
 		
 		
-		opcion = scan.nextInt();
 		
 		do {
-			Menu.mostrarMenuHabitacionSalir();
 			
+			Menu.mostrarMenuHabitacionSalir();
 			opcion = scan.nextInt();
 			
 

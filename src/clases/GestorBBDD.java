@@ -25,14 +25,14 @@ public class GestorBBDD extends Conector {
 	public void insertarHabitacion(Habitacion habitacion) {
 		
 		try {
-			preparedSt= con.prepareStatement("INSERT INTO `habitaciones`(`id`, `id_hotel`, "
-					+ "`numero`, `descripcion`, `precio`)"
-					+ "VALUES (?,?,?,?,?)");
-			preparedSt.setInt(1, habitacion.getId());
-			preparedSt.setInt(2, habitacion.getId_hotel());
-			preparedSt.setString(3,habitacion.getNumero());
-			preparedSt.setString(4, habitacion.getDescripcion());
-			preparedSt.setDouble(5, habitacion.getPrecio());
+			preparedSt= con.prepareStatement("INSERT INTO habitaciones(id_hotel, "
+					+ "numero, descripcion, precio)"
+					+ "VALUES (?,?,?,?)");
+			
+			preparedSt.setInt(1, habitacion.getId_hotel());
+			preparedSt.setString(2,habitacion.getNumero());
+			preparedSt.setString(3, habitacion.getDescripcion());
+			preparedSt.setDouble(4, habitacion.getPrecio());
 			
 			
 			preparedSt.execute();
