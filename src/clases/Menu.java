@@ -82,6 +82,8 @@ public class Menu {
 		}
 		
 		public static void mostrarMenuHabitacionSalir() {
+			System.out.println("");
+			System.out.println("------MENU HABITACION-------");
 			System.out.println(CREAR_HABITACION + ". Crear habitacion");
 			System.out.println( SALIR+ ". salir");
 			System.out.println("");
