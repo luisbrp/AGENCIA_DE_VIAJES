@@ -59,5 +59,16 @@ public class FormularioDeDatos {
 		
 		return dni;	
 	}
+	public static String pedirDniClientealta( Scanner scan) {
+		
+		Cliente cliente = new Cliente();
+		
+		System.out.println("Introduce el Dni del cliente a consultar");
+		cliente.setDni(scan.nextLine());
+		
+		String dni = cliente.getDni();
+		
+		return dni;	
+	}
 	
 }

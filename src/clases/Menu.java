@@ -13,6 +13,7 @@ public class Menu {
 			final static int INSERTAR_CLIENTE=1;
 			final static int ELIMINAR_CLIENTE=2;
 			final static int MODIFICAR_CLIENTE = 3;
+			public static final int VER_CLIENTES = 4;
 
 			
 			// menu reserva
@@ -28,6 +29,7 @@ public class Menu {
 			//menu hotel
 			public static final int DATOS_HOTEL=1;
 			public static final int CREAR_HABITACION_SALIR=3;
+		
 			
 			
 			
@@ -51,6 +53,7 @@ public class Menu {
 				System.out.println( INSERTAR_CLIENTE + ". Insertar cliente");
 				System.out.println( ELIMINAR_CLIENTE + ". Eliminar cliente");
 				System.out.println( MODIFICAR_CLIENTE + ". Modificar cliente");
+				System.out.println( VER_CLIENTES + ". Ver clientes");
 				System.out.println(SALIR + ". Salir");
 				System.out.println("");
 				
