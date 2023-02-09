@@ -151,7 +151,7 @@ public class GestorBBDD extends Conector{
 	
 	public ArrayList<Reserva> getReservas(ArrayList<Reserva> reservas) {
 		
-		Reserva reserva = new Reserva();
+		
 		
 		try {
 			pst = con.prepareStatement("SELECT * FROM reservas");
@@ -159,6 +159,8 @@ public class GestorBBDD extends Conector{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		Reserva reserva = new Reserva();
 		
 		ResultSet resultado = null;
 		try {
