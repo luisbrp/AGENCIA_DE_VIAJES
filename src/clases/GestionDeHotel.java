@@ -1,34 +1,56 @@
 package clases;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GestionDeHotel {
 
 	public static void run(Scanner scan) {
-		
+
 		int opcion;
+		String HabitSalir="";
 		GestorBBDD gestorBBDD = new GestorBBDD();
 		Hotel hotel = new Hotel();
-		int id_hotel;
-		ArrayList <Hotel> hoteles = new ArrayList <Hotel>();
-		
+
 		do {
 			Menu.mostrarMenuHotel();
-			opcion= scan.nextInt();
+			opcion = scan.nextInt();
 			
-			switch(opcion) {
-			
+
+			switch (opcion) {
+
 			case Menu.ALTA_DE_HOTEL:
-				hotel=FormularioDeDatos.pedirDatosHotel(scan);
+				hotel = FormularioDeDatos.pedirDatosHotel(scan);
 				gestorBBDD.conectar();
 				gestorBBDD.insertarHotel(hotel);
 				gestorBBDD.cerrar();
 				break;
 			
+			case Menu.CREAR_HABITACION_SALIR:
+				
+				HabitSalir=FormularioDeDatos.elegirHabitacionSalir(scan);
+				
+				if (HabitSalir.equals("H")) {
+					
+					Menu.mostrarMenuHabitacion();
+					Habitacion habitacion = new Habitacion();
+					habitacion = FormularioDeDatos.pedirDatosHabitacion(scan);
+					gestorBBDD.conectar();
+					gestorBBDD.insertarHabitacion(habitacion);
+					gestorBBDD.cerrar();
+					
+					
+				}
+				else if (HabitSalir.equals("S")) {
+					
+					break;
+				}
+				
+				
+			
 			}
-		} while (opcion != Menu.SALIR);
-		
+			System.out.println("");
+		} while (HabitSalir.equals("S"));
 	}
-	
 }
+
+

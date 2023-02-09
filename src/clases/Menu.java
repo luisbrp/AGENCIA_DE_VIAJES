@@ -25,7 +25,11 @@ public class Menu {
 			
 			//menu hotel
 			public static final int DATOS_HOTEL=1;
-			public static final int CREAR_HABITACION_SALIR=3;
+			public static final int CREAR_HABITACION_SALIR = 2;
+			
+			
+			
+			
 			
 			
 			
@@ -70,8 +74,12 @@ public class Menu {
 			System.out.println("");
 			System.out.println("------MENU HOTEL-------");
 			System.out.println( DATOS_HOTEL + ". Introducir datos del hotel");
-			System.out.println( CREAR_HABITACION_SALIR+ ". Introducir datos de la reserva");
-			System.out.println(SALIR + ". Salir");
+			System.out.println(CREAR_HABITACION_SALIR + ". Si quieres crear habitacion pulsa H sin quieres salir pulsa S");
+			
+		}
+		
+		public static void mostrarMenuHabitacion() {
+			System.out.println( "Introduce los datos de la habitacion ");
 			System.out.println("");
 		}
 		
