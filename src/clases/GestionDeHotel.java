@@ -12,7 +12,7 @@ public class GestionDeHotel {
 		GestorBBDD gestorBBDD = new GestorBBDD();
 		Hotel hotel = new Hotel();
 
-		Menu.mostrarMenuHotel();
+		
 		hotel = FormularioDeDatos.pedirDatosHotel(scan);
 		gestorBBDD.conectar();
 		gestorBBDD.insertarHotel(hotel);

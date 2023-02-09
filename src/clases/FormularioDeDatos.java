@@ -14,6 +14,8 @@ public class FormularioDeDatos {
 		String compania;
 		
 		scan.nextLine();
+		System.out.println(" Introducir datos del hotel:");
+		System.out.println("------");
 		
 		System.out.println("Introduce el cif de hotel");
 		cif= scan.nextLine();
