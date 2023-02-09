@@ -4,6 +4,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.mysql.cj.protocol.Resultset;
 
 public class GestorBBDD extends Conector{
 		
@@ -20,10 +23,19 @@ public class GestorBBDD extends Conector{
 	
 	public void realizarReservas ()  {
 		
+		boolean ALTA = ConsultarAltaCliente(dni);
+		
 		Reserva reserva=new Reserva();
+		Integer id_hotel;
 		
-		
-		//funcionalidad de mostrar habitaciones
+		if (ALTA){
+			id_hotel = FormularioDeDatos.pedirDatosHotel(scan);
+			//visor que muestre las habitaciones por id del hotel
+			
+			//si la habitacion coincide con null... 
+			System.out.println("No hay habitaciones para este hotel.");
+		}
+	
 			
 			try {
 				pst=con.prepareStatement("INSERT INTO reservas (id_habitacion, dni, desde, hasta) VALUES(?,?,?,?)");
@@ -136,8 +148,44 @@ public class GestorBBDD extends Conector{
 	}
 	
 	
-	// GetReservas
 	
+	public ArrayList<Reserva> getReservas(ArrayList<Reserva> reservas) {
+		
+		Reserva reserva = new Reserva();
+		
+		try {
+			pst = con.prepareStatement("SELECT * FROM reservas");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ResultSet resultado = null;
+		try {
+			resultado = pst.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			while(resultado.next()) {
+				
+				reserva.setId(resultado.getInt(1));
+				reserva.setId_Habitacion(resultado.getInt(2));
+				reserva.setDni(resultado.getString(3));
+				reserva.setDesde(resultado.getDate(4));
+				reserva.setHasta(resultado.getDate(5));
+				
+				reservas.add(reserva);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 
 	
 }
