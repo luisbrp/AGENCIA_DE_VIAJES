@@ -7,8 +7,8 @@ public class GestorBBDD extends Conector {
 	
 	PreparedStatement preparedSt;
 	
-	public void insertarHotel(Hotel hotel) {
-		try {
+	public void insertarHotel(Hotel hotel) throws SQLException {
+		
 			preparedSt=con.prepareStatement ("INSERT INTO hoteles(`id`, `cif`,"
 					+ "nombre`, `gerente`, `estrellas`, `compania`)" 
 					+"VALUES (?,?,?,?,?,?)");
@@ -20,10 +20,7 @@ public class GestorBBDD extends Conector {
 			preparedSt.setString(6, hotel.getCompania());
 			
 			preparedSt.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 	
 	public void insertarHabitacion(Habitacion habitacion) {

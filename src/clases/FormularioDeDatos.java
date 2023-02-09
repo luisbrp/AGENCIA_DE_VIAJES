@@ -28,6 +28,7 @@ public class FormularioDeDatos {
 		System.out.println("Introduce las estrellas de hotel");
 		estrellas= scan.nextInt();
 		
+		scan.nextLine();
 		System.out.println("Introduce la compañia del hotel");
 		compania= scan.nextLine();
 		
@@ -35,7 +36,7 @@ public class FormularioDeDatos {
 		hotel.setNombre(nombre);
 		hotel.setGerente(gerente);
 		hotel.setEstrellas(estrellas);
-		hotel.setCif(compania);
+		hotel.setCompania(compania);
 		
 		return hotel;
 	}
