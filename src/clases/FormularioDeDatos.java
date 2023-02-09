@@ -65,7 +65,9 @@ public class FormularioDeDatos {
 	
 	
 
-	public Reserva pedirDatosReserva(Scanner scan) {
+	public static Reserva pedirDatosReserva(Scanner scan) {
+		
+		
 		
 		Reserva reserva = new Reserva();
 		
@@ -77,6 +79,7 @@ public class FormularioDeDatos {
 		
 		SimpleDateFormat desde = new SimpleDateFormat("dd/MM/yyyy");
 		System.out.println("Introduce desde cuando se realiza la reserva:"+desde);
+		
 		try {
 			reserva.setDesde((java.sql.Date)desde.parse(scan.nextLine()));
 		} catch (ParseException e) {
@@ -85,6 +88,7 @@ public class FormularioDeDatos {
 		
 		SimpleDateFormat hasta = new SimpleDateFormat("dd/MM/yyyy");
 		System.out.println("Introduce hasta cuando se realizara la reserva:"+ hasta);
+		
 		try {
 			reserva.setHasta((java.sql.Date)hasta.parse(scan.nextLine()));
 		} catch (ParseException e) {
@@ -92,5 +96,13 @@ public class FormularioDeDatos {
 		}
 		
 		return reserva;
+	}
+	
+	public static int PedirIdReserva(Scanner scan) {
+		Reserva reserva = new Reserva();
+		System.out.println("Introduce el id de la reserva que desea anular");
+		reserva.setId(Integer.parseInt(scan.nextLine()));
+		int id = reserva.getId();
+		return id;
 	}
 }
