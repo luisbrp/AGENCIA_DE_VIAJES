@@ -7,7 +7,6 @@ public class FormularioDeDatos {
 	//formulario hotel
 	public static Hotel pedirDatosHotel(Scanner scan) {
 		Hotel hotel = new Hotel();
-		
 		String cif;
 		String nombre;
 		String gerente;

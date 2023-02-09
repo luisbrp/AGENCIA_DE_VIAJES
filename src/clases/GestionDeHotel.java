@@ -8,50 +8,46 @@ public class GestionDeHotel {
 	public static void run() throws SQLException {
 		Scanner scan= new Scanner(System.in);
 		int opcion;
-		String HabitSalir="";
+		
 		GestorBBDD gestorBBDD = new GestorBBDD();
 		Hotel hotel = new Hotel();
 
+		Menu.mostrarMenuHotel();
+		hotel = FormularioDeDatos.pedirDatosHotel(scan);
+		gestorBBDD.conectar();
+		gestorBBDD.insertarHotel(hotel);
+		gestorBBDD.cerrar();
+		
+		
+		
+		opcion = scan.nextInt();
+		
 		do {
-			Menu.mostrarMenuHotel();
+			Menu.mostrarMenuHabitacionSalir();
+			
 			opcion = scan.nextInt();
 			
 
 			switch (opcion) {
-
-			case Menu.DATOS_HOTEL:
-				hotel = FormularioDeDatos.pedirDatosHotel(scan);
-				gestorBBDD.conectar();
-				gestorBBDD.insertarHotel(hotel);
-				gestorBBDD.cerrar();
-				break;
 			
-			case Menu.CREAR_HABITACION_SALIR:
-				
-				HabitSalir=FormularioDeDatos.elegirHabitacionSalir(scan);
-				
-				if (HabitSalir.equals("H")) {
-					
-					Menu.mostrarMenuHabitacion();
+				case Menu.CREAR_HABITACION:
 					Habitacion habitacion = new Habitacion();
 					habitacion = FormularioDeDatos.pedirDatosHabitacion(scan);
 					gestorBBDD.conectar();
 					gestorBBDD.insertarHabitacion(habitacion);
 					gestorBBDD.cerrar();
 					
-					
-				}
-				else if (HabitSalir.equals("S")) {
-					
 					break;
-				}
-				
-				
-			
+				case Menu.SALIR:
+					
+					
+					
+					
 			}
 			System.out.println("");
-		} while (HabitSalir.equals("S"));
-	}
+			} while (opcion != Menu.SALIR);
+		
+}
 }
 
 

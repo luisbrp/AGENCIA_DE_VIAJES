@@ -9,15 +9,14 @@ public class GestorBBDD extends Conector {
 	
 	public void insertarHotel(Hotel hotel) throws SQLException {
 		
-			preparedSt=con.prepareStatement ("INSERT INTO hoteles(`id`, `cif`,"
-					+ "nombre`, `gerente`, `estrellas`, `compania`)" 
-					+"VALUES (?,?,?,?,?,?)");
-			preparedSt.setInt(1, hotel.getId());
-			preparedSt.setString(2, hotel.getCif());
-			preparedSt.setString(3, hotel.getNombre());
-			preparedSt.setString(4, hotel.getGerente());
-			preparedSt.setInt(5, hotel.getEstrellas());
-			preparedSt.setString(6, hotel.getCompania());
+			preparedSt=con.prepareStatement ("INSERT INTO hoteles(cif,"
+					+ "nombre, gerente, estrellas, compania)" 
+					+"VALUES (?,?,?,?,?)");
+			preparedSt.setString(1, hotel.getCif());
+			preparedSt.setString(2, hotel.getNombre());
+			preparedSt.setString(3, hotel.getGerente());
+			preparedSt.setInt(4, hotel.getEstrellas());
+			preparedSt.setString(5, hotel.getCompania());
 			
 			preparedSt.execute();
 		
