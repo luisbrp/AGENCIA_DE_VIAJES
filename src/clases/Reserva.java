@@ -1,10 +1,10 @@
 package clases;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Reserva {
 	private int id;
-	private int habitacion;
+	private int id_habitacion;
 	private String dni;
 	private Date desde;
 	private Date hasta;
@@ -15,11 +15,11 @@ public class Reserva {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getHabitacion() {
-		return habitacion;
+	public int getId_Habitacion() {
+		return id_habitacion;
 	}
-	public void setHabitacion(int habitacion) {
-		this.habitacion = habitacion;
+	public void setId_Habitacion(int habitacion) {
+		this.id_habitacion = habitacion;
 	}
 	public String getDni() {
 		return dni;
@@ -43,7 +43,7 @@ public class Reserva {
 	
 	@Override
 	public String toString() {
-		return "Reservas [id=" + id + ", habitacion=" + habitacion + ", dni=" + dni + ", desde=" + desde + ", hasta="
+		return "Reservas [id=" + id + ", id_habitacion=" + id_habitacion + ", dni=" + dni + ", desde=" + desde + ", hasta="
 				+ hasta + "]";
 	}
 }

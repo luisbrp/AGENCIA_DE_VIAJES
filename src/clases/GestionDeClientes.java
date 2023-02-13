@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 
 public class GestionDeClientes {
+
+
 	public void run() throws SQLException {
 		Scanner scan = new Scanner(System.in);
 		int opcion;
@@ -54,4 +56,5 @@ public class GestionDeClientes {
 		
 				} while (opcion != Menu.SALIR);
 				}
+
 }

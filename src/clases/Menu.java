@@ -4,8 +4,8 @@ public class Menu {
 	
 			//menu principal
 			public static final int REGISTRAR_ALTA_CLIENTES=1;
-			public static final int REALIZAR_RESERVA=2;
-			public static final int ANULAR_RESERVA=3;
+			public static final int REALIZAR_RESERVA=1;
+			public static final int ANULAR_RESERVA=2;
 			public static final int ALTA_DE_HOTEL=4;
 			public static final int SALIR=0;
 
@@ -25,6 +25,8 @@ public class Menu {
 			public static final int FECHA_RESERVA_INICIO_FIN=6;
 			
 			
+			public static final int MOSTRAR_UNA_RESERVA = 3;
+			public static final int MOSTRAR_RESERVAS = 4;
 			
 // RAMA_HOTELES
 			
@@ -35,9 +37,16 @@ public class Menu {
 			//menu hotel
 			public static final int DATOS_HOTEL=1;
 			public static final int CREAR_HABITACION_SALIR=3;
+
+			public static final int INSERTAR_CLIENTE = 1;
+			public static final int ELIMINAR_CLIENTE = 2;
+			public static final int VER_CLIENTES = 4;
+			public static final int MODIFICAR_CLIENTE = 3;
+
 		// master
 			
 			
+
 			
 			
 			
@@ -54,7 +63,7 @@ public class Menu {
 			}
 			
 		  public static void motrarMenuClientes() {
-			  	System.out.println("");
+			  System.out.println("");
 				System.out.println("------MENU CLIENTES-------");
 				System.out.println( INSERTAR_CLIENTE + ". Insertar cliente");
 				System.out.println( ELIMINAR_CLIENTE + ". Eliminar cliente");
@@ -62,20 +71,16 @@ public class Menu {
 				System.out.println( VER_CLIENTES + ". Ver clientes");
 				System.out.println(SALIR + ". Salir");
 				System.out.println("");
-				
 		  }
 		  
 		public static void mostrarMenuHacerReserva() {
-			System.out.println("");
-			System.out.println("------MENU RESERVAS-------");
-			System.out.println( DATOS_RESERVA + ". Introducir datos de la reserva");
-			System.out.println( CLIENTE_REGISTRADO + ". Introducir datos de la reserva");
-			System.out.println( BUSCAR_HOTEL + ". Introducir datos de la reserva");
-			System.out.println( VISUALIZAR_HABITACIONES_HOTEL + ". Introducir datos de la reserva");
-			System.out.println( ID_HABITACION_RESERVA + ". Introducir datos de la reserva");
-			System.out.println( FECHA_RESERVA_INICIO_FIN + ". Introducir datos de la reserva");
-			System.out.println(SALIR + ". Salir");
-			System.out.println("");
+			System.out.println("-----MENU RESERVAS-----");
+			System.out.println(REALIZAR_RESERVA+". Realizar reserva");
+			System.out.println(ANULAR_RESERVA+". Anular reserva");
+			System.out.println(MOSTRAR_UNA_RESERVA+". Mostrar reserva");
+			System.out.println(MOSTRAR_RESERVAS+". Mostrar reservas");
+			System.out.println(SALIR+". Salir");
+			System.out.println("Escoja una opcion:");
 		}
 		
 		public static void mostrarMenuHotel() {
@@ -95,11 +100,13 @@ public class Menu {
 			System.out.println("");
 		}
 		
+
 		public static void mostrarHabaitaciones() {
 			System.out.println("Introduce los datos de la habitacion");
 		}
 		
 		
+
 		
 		
 			
