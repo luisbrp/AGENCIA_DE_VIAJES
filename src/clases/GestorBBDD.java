@@ -36,7 +36,7 @@ public void modificarCliente(Cliente cliente) throws SQLException {
 }
 public void eliminarCliente (String dni) throws SQLException {
 
-	Cliente cliente = new Cliente();
+	
 	
 	PreparedStatement preparedStel = con.prepareStatement("DELETE FROM clientes WHERE dni = ? ;");
 	
@@ -48,7 +48,7 @@ public boolean ConsultarAltaCliente (String dni) throws SQLException {
 	PreparedStatement preparedSt = con.prepareStatement("SELECT * FROM clientes WHERE dni = ? ");
 	preparedSt.setString(1, dni);
 	preparedSt.execute();
-	Cliente cliente = new Cliente();
+	
 	
 	ResultSet resultado = preparedSt.executeQuery();
 	boolean ALTA = false;

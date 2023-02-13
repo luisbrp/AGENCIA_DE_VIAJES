@@ -32,11 +32,6 @@ public class Menu {
 			//habitacion salir
 			public static final int CREAR_HABITACION = 1;
 			
-			
-			
-			
-			
-=======
 			//menu hotel
 			public static final int DATOS_HOTEL=1;
 			public static final int CREAR_HABITACION_SALIR=3;
