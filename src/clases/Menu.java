@@ -10,8 +10,11 @@ public class Menu {
 			public static final int SALIR=0;
 
 			// menu cliente
-			public static final int DATOS_CLIENTE=1;
-			public static final int VISUALIZAR_CLIENTES=2 ;
+			final static int INSERTAR_CLIENTE=1;
+			final static int ELIMINAR_CLIENTE=2;
+			final static int MODIFICAR_CLIENTE = 3;
+			public static final int VER_CLIENTES = 4;
+
 			
 			// menu reserva
 			public static final int DATOS_RESERVA=1;
@@ -25,13 +28,25 @@ public class Menu {
 			public static final int MOSTRAR_UNA_RESERVA = 3;
 			public static final int MOSTRAR_RESERVAS = 4;
 			
+// RAMA_HOTELES
+			
+			
+			//habitacion salir
+			public static final int CREAR_HABITACION = 1;
+			
 			//menu hotel
 			public static final int DATOS_HOTEL=1;
 			public static final int CREAR_HABITACION_SALIR=3;
+
 			public static final int INSERTAR_CLIENTE = 1;
 			public static final int ELIMINAR_CLIENTE = 2;
 			public static final int VER_CLIENTES = 4;
 			public static final int MODIFICAR_CLIENTE = 3;
+
+		// master
+			
+			
+
 			
 			
 			
@@ -71,11 +86,25 @@ public class Menu {
 		public static void mostrarMenuHotel() {
 			System.out.println("");
 			System.out.println("------MENU HOTEL-------");
-			System.out.println( DATOS_HOTEL + ". Introducir datos del hotel");
-			System.out.println( CREAR_HABITACION_SALIR+ ". Introducir datos de la reserva");
-			System.out.println(SALIR + ". Salir");
+			System.out.println(" Introducir datos del hotel:");
+			System.out.println("----------------------------");
+			
+			
+		}
+		
+		public static void mostrarMenuHabitacionSalir() {
+			System.out.println("");
+			System.out.println("------MENU HABITACION-------");
+			System.out.println(CREAR_HABITACION + ". Crear habitacion");
+			System.out.println( SALIR+ ". salir");
 			System.out.println("");
 		}
+		
+
+		public static void mostrarHabaitaciones() {
+			System.out.println("Introduce los datos de la habitacion");
+		}
+		
 		
 
 		
