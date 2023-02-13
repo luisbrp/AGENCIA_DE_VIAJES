@@ -51,14 +51,14 @@ public class FormularioDeDatos {
 			return cliente;
 		}
 		//PEDIR DNI CLIENTE PARA ELIMINAR CLIENTES
-		public static String pedirDniCliente( Scanner scan) {
+		public static String pedirDniCliente( Scanner scan, String dni) {
 			
 			Cliente cliente = new Cliente();
 			
 			System.out.println("Introduce el Dni del cliente a eliminar");
 			cliente.setDni(scan.nextLine());
 			
-			String dni = cliente.getDni();
+			dni = cliente.getDni();
 			
 			return dni;	
 		}
@@ -74,10 +74,8 @@ public class FormularioDeDatos {
 			return dni;	
 		}
 	
-	public static Reserva pedirDatosReserva(Scanner scan) {
+	public static Reserva pedirDatosReserva(Scanner scan, Reserva reserva) {
 		
-
-		Reserva reserva = new Reserva();
 		
 		System.out.println("Introduce el id de la habitacion:");
 		reserva.setId_Habitacion(Integer.parseInt(scan.nextLine()));
@@ -86,15 +84,15 @@ public class FormularioDeDatos {
 		reserva.setDni(scan.nextLine());
 		
 		SimpleDateFormat desde = new SimpleDateFormat("dd/MM/yyyy");
-		System.out.println("Introduce desde cuando se realiza la reserva en este formato(yyyy/MM/dd)");
+		System.out.println("Introduce desde cuando se realiza la reserva en este formato(dd/MM/yyyy");
 		try {
 			reserva.setDesde(desde.parse(scan.nextLine()));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		SimpleDateFormat hasta = new SimpleDateFormat("yyyy/MM/dd");
-		System.out.println("Introduce hasta cuando se realizara la reserva en este formato(yyyy/MM/dd)");
+		SimpleDateFormat hasta = new SimpleDateFormat("dd/MM/yyyy");
+		System.out.println("Introduce hasta cuando se realizara la reserva en este formato(dd/MM/yyyy");
 		
 		try {
 			reserva.setHasta(hasta.parse(scan.nextLine()));
@@ -106,11 +104,11 @@ public class FormularioDeDatos {
 		return reserva;
 	}
 	
-	public static int PedirIdReserva(Scanner scan) {
+	public static int PedirIdReserva(int id, Scanner scan) {
 		Reserva reserva = new Reserva();
 		System.out.println("Introduce el id de la reserva:");
 		reserva.setId(Integer.parseInt(scan.nextLine()));
-		int id = reserva.getId();
+		id = reserva.getId();
 		return id;
 	}
 }

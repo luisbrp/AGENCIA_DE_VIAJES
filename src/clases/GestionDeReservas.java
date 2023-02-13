@@ -6,42 +6,46 @@ import java.util.ArrayList;
 
 public class GestionDeReservas {
 
-	public static void run() throws SQLException {
+	private static final boolean ALTA = false;
+
+	public static void run() throws SQLException  {
 		Scanner scan = new Scanner(System.in);
 		GestorBBDD gbd = new GestorBBDD();
 		Visor visor = new Visor();
+		Cliente cliente = new Cliente();
 		Reserva reserva = new Reserva();
 		ArrayList<Reserva> reservas = new ArrayList<Reserva>(); 
 		int opcion_menu;
 		int id = 0;
-		String dni;
+		String dni = null;
 
 		do {
 			Menu.mostrarMenuHacerReserva();
 			opcion_menu = Integer.parseInt(scan.nextLine());
 			switch (opcion_menu) {
 			case Menu.REALIZAR_RESERVA:
+				dni = FormularioDeDatos.pedirDniCliente(scan, dni);
+				reserva = FormularioDeDatos.pedirDatosReserva(scan, reserva);
 				gbd.conectar();
-				dni = FormularioDeDatos.pedirDniClientealta(scan);
-				reserva = FormularioDeDatos.pedirDatosReserva(scan);
-				gbd.realizarReservas(dni, scan);
+				gbd.realizarReservas(reserva);
 				gbd.cerrar();
 				break;
 			case Menu.ANULAR_RESERVA:
 				gbd.conectar();
-				int ids = FormularioDeDatos.PedirIdReserva(scan);
+				id = FormularioDeDatos.PedirIdReserva(id, scan);
+				gbd.conectar();
 				gbd.anularReserva(id);
 				gbd.cerrar();
 				break;
 			case Menu.MOSTRAR_UNA_RESERVA:
 				gbd.conectar();
-				id = FormularioDeDatos.PedirIdReserva(scan);
+				id = FormularioDeDatos.PedirIdReserva(id, scan);
 				reserva = gbd.getReserva(id);
 				Visor.mostrarUnaReserva(reserva);
 				break;
 			case Menu.MOSTRAR_RESERVAS:
 				gbd.conectar();
-				reservas = gbd.getReservas();
+				reservas = gbd.getReservas(reservas);
 				Visor.mostrarRervas(reservas);
 				gbd.cerrar();
 				break;

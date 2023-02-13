@@ -14,6 +14,7 @@ public class GestionDeClientes {
 		ArrayList<Cliente> clientes = new ArrayList<>();
 		Cliente cliente = new Cliente();
 		GestorBBDD gbd = new GestorBBDD();
+		String dni = null;
 		do {
 		Menu.motrarMenuClientes();
 		
@@ -27,7 +28,7 @@ public class GestionDeClientes {
 		gbd.cerrar();
 		break;
 		case Menu.ELIMINAR_CLIENTE:
-		String dni = FormularioDeDatos.pedirDniCliente(scan);
+		dni = FormularioDeDatos.pedirDniCliente(scan, dni);
 		gbd.conectar();
 		gbd.eliminarCliente(dni);
 		gbd.cerrar();
