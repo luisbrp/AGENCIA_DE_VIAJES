@@ -35,8 +35,6 @@ public class Menu {
 			
 			
 			
-			
-			
 			public static void mostrarMenuPrincipal() {
 				System.out.println("");
 				System.out.println("------MENU PRINCIPAL-------");
@@ -78,6 +76,8 @@ public class Menu {
 			System.out.println(SALIR + ". Salir");
 			System.out.println("");
 		}
+		
+
 		
 		
 			
