@@ -111,4 +111,12 @@ public class FormularioDeDatos {
 		id = reserva.getId();
 		return id;
 	}
+	
+	public static int pedirIdHotel (int id, Scanner scan) {
+		Hotel hotel = new Hotel();
+		System.out.println("Introduce el id del hotel:");
+		hotel.setId(Integer.parseInt(scan.nextLine()));
+		id = hotel.getId();
+		return id;
+	}
 }

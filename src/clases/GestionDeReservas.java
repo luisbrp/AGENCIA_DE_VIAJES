@@ -24,10 +24,9 @@ public class GestionDeReservas {
 			opcion_menu = Integer.parseInt(scan.nextLine());
 			switch (opcion_menu) {
 			case Menu.REALIZAR_RESERVA:
-				dni = FormularioDeDatos.pedirDniCliente(scan, dni);
-				reserva = FormularioDeDatos.pedirDatosReserva(scan, reserva);
 				gbd.conectar();
-				gbd.realizarReservas(reserva);
+				dni = FormularioDeDatos.pedirDniCliente(scan, dni);
+				gbd.realizarReserva(dni, scan, reserva);
 				gbd.cerrar();
 				break;
 			case Menu.ANULAR_RESERVA:
