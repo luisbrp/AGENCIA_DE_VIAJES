@@ -1,10 +1,9 @@
 package clases;
 
-
+import java.util.Scanner;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
 import clases.*;
 
 public class FormularioDeDatos {
@@ -52,7 +51,7 @@ public class FormularioDeDatos {
 			return cliente;
 		}
 		//PEDIR DNI CLIENTE PARA ELIMINAR CLIENTES
-		public static String pedirDniCliente( Scanner scan, String dni) {
+	public static String pedirDniCliente( Scanner scan, String dni) {
 			
 			Cliente cliente = new Cliente();
 			
@@ -63,7 +62,7 @@ public class FormularioDeDatos {
 			
 			return dni;	
 		}
-		public static String pedirDniClientealta( Scanner scan) {
+	public static String pedirDniClientealta( Scanner scan) {
 			
 			Cliente cliente = new Cliente();
 			
@@ -75,7 +74,7 @@ public class FormularioDeDatos {
 			return dni;	
 		}
 	
-	public static Reserva pedirDatosReserva(Scanner scan, Reserva reserva) {
+	public static Reserva pedirDatosReserva(Scanner scan, Reserva reserva) throws ParseException {
 		
 		
 		System.out.println("Introduce el id de la habitacion:");
@@ -86,21 +85,11 @@ public class FormularioDeDatos {
 		
 		SimpleDateFormat desde = new SimpleDateFormat("dd/MM/yyyy");
 		System.out.println("Introduce desde cuando se realiza la reserva en este formato(dd/MM/yyyy");
-		try {
-			reserva.setDesde(desde.parse(scan.nextLine()));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		reserva.setDesde(desde.parse(scan.nextLine()));
+		
 		SimpleDateFormat hasta = new SimpleDateFormat("dd/MM/yyyy");
 		System.out.println("Introduce hasta cuando se realizara la reserva en este formato(dd/MM/yyyy");
-		
-		try {
-			reserva.setHasta(hasta.parse(scan.nextLine()));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		reserva.setHasta(hasta.parse(scan.nextLine()));
 		
 		return reserva;
 	}
@@ -112,86 +101,9 @@ public class FormularioDeDatos {
 		id = reserva.getId();
 		return id;
 	}
-	
-	public static int pedirIdHotel (int id, Scanner scan) {
-		Hotel hotel = new Hotel();
-		System.out.println("Introduce el id del hotel:");
-		hotel.setId(Integer.parseInt(scan.nextLine()));
-		id = hotel.getId();
-		return id;
-	}
-}
-=======
-import java.util.Scanner;
-
-// RAMA_HOTELES
-public class FormularioDeDatos {
-	//PEDIR DATOS CLIENTE PARA INSERTAR LINEAS
-		public static Cliente PedirDatosCliente(Scanner scan) {
-			
-			Cliente cliente = new Cliente();
-			System.out.println("Introduce el Dni del cliente");
-			cliente.setDni(scan.nextLine());
-			
-			System.out.println("Introduce el nombre del cliente");
-			cliente.setNombre(scan.nextLine());
-			
-			System.out.println("Introduce el apellido del cliente");
-			cliente.setApellidos(scan.nextLine());
-			
-			System.out.println("introduce la direccion del cliente");
-			cliente.setDireccion(scan.nextLine());
-			
-			System.out.println("introduce la localidad del cliente");
-			cliente.setLocalidad(scan.nextLine());
-			
-			return cliente;
-		}
 		
-		//MODIFICAR DATOS CLIENTE
-		public static Cliente ModificarDatosCliente(Cliente cliente,Scanner scan) {
-			
-			System.out.println("Introduce el Dni del cliente");
-			cliente.setDni(scan.nextLine());
-			
-			System.out.println("Introduce el nombre del cliente");
-			cliente.setNombre(scan.nextLine());
-			
-			System.out.println("Introduce el apellido del cliente");
-			cliente.setApellidos(scan.nextLine());
-			
-			System.out.println("introduce la direccion del cliente");
-			cliente.setDireccion(scan.nextLine());
-			
-			System.out.println("introduce la localidad del cliente");
-			cliente.setLocalidad(scan.nextLine());
-			
-			return cliente;
-		}
-		//PEDIR DNI CLIENTE PARA ELIMINAR CLIENTES
-		public static String pedirDniCliente( Scanner scan) {
-			
-			Cliente cliente = new Cliente();
-			
-			System.out.println("Introduce el Dni del cliente a eliminar");
-			cliente.setDni(scan.nextLine());
-			
-			String dni = cliente.getDni();
-			
-			return dni;	
-		}
-		public static String pedirDniClientealta( Scanner scan) {
-			
-			Cliente cliente = new Cliente();
-			
-			System.out.println("Introduce el Dni del cliente a consultar");
-			cliente.setDni(scan.nextLine());
-			
-			String dni = cliente.getDni();
-			
-			return dni;	
-		}
 	//formulario hotel
+		
 	public static Hotel pedirDatosHotel(Scanner scan) {
 		Hotel hotel = new Hotel();
 		String cif;
@@ -224,6 +136,14 @@ public class FormularioDeDatos {
 		hotel.setCompania(compania);
 		
 		return hotel;
+	}
+	
+	public static int pedirIdHotel (int id, Scanner scan) {
+		Hotel hotel = new Hotel();
+		System.out.println("Introduce el id del hotel:");
+		hotel.setId(Integer.parseInt(scan.nextLine()));
+		id = hotel.getId();
+		return id;
 	}
 	
 	public static String elegirHabitacionSalir (Scanner scan) {
