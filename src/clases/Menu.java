@@ -26,10 +26,21 @@ public class Menu {
 			
 			
 			
+// RAMA_HOTELES
+			
+			
+			//habitacion salir
+			public static final int CREAR_HABITACION = 1;
+			
+			
+			
+			
+			
+=======
 			//menu hotel
 			public static final int DATOS_HOTEL=1;
 			public static final int CREAR_HABITACION_SALIR=3;
-		
+		// master
 			
 			
 			
@@ -75,11 +86,25 @@ public class Menu {
 		public static void mostrarMenuHotel() {
 			System.out.println("");
 			System.out.println("------MENU HOTEL-------");
-			System.out.println( DATOS_HOTEL + ". Introducir datos del hotel");
-			System.out.println( CREAR_HABITACION_SALIR+ ". Introducir datos de la reserva");
-			System.out.println(SALIR + ". Salir");
+			System.out.println(" Introducir datos del hotel:");
+			System.out.println("----------------------------");
+			
+			
+		}
+		
+		public static void mostrarMenuHabitacionSalir() {
+			System.out.println("");
+			System.out.println("------MENU HABITACION-------");
+			System.out.println(CREAR_HABITACION + ". Crear habitacion");
+			System.out.println( SALIR+ ". salir");
 			System.out.println("");
 		}
+		
+		public static void mostrarHabaitaciones() {
+			System.out.println("Introduce los datos de la habitacion");
+		}
+		
+		
 		
 		
 			
