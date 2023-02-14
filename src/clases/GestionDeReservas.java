@@ -12,7 +12,7 @@ public class GestionDeReservas {
 	public static void run() throws SQLException, ParseException  {
 		Scanner scan = new Scanner(System.in);
 		GestorBBDD gbd = new GestorBBDD();
-		visor visors = new visor();
+		Visor visors = new Visor();
 		Cliente cliente = new Cliente();
 		Reserva reserva = new Reserva();
 		ArrayList<Reserva> reservas = new ArrayList<Reserva>(); 
@@ -41,12 +41,12 @@ public class GestionDeReservas {
 				gbd.conectar();
 				id = FormularioDeDatos.PedirIdReserva(id, scan);
 				reserva = gbd.getReserva(id);
-				visor.mostrarUnaReserva(reserva);
+				Visor.mostrarUnaReserva(reserva);
 				break;
 			case Menu.MOSTRAR_RESERVAS:
 				gbd.conectar();
 				reservas = gbd.getReservas(reservas);
-				visor.mostrarRervas(reservas);
+				Visor.mostrarRervas(reservas);
 				gbd.cerrar();
 				break;
 			case Menu.SALIR:

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 
-public class visor {
+public class Visor {
 
 	public static void mostrarClientes(ArrayList<Cliente> clientes) {
 		  

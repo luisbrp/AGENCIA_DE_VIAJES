@@ -39,7 +39,7 @@ public class GestionDeClientes {
 		Menu.VER_CLIENTES:
 		gbd.conectar();
 		clientes = gbd.verClientes();
-		visor.mostrarClientes(clientes);
+		Visor.mostrarClientes(clientes);
 		gbd.cerrar();
 		break;
 		case Menu.MODIFICAR_CLIENTE:

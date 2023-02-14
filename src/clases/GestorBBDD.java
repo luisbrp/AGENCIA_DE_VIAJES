@@ -118,7 +118,7 @@ public class GestorBBDD extends Conector {
 			}
 			else {												//Si no, el programa mostrara todas las habitaciones que tiene dicho hotel.
 				
-				visor.mostrarHabitaciones(getHabitacionesHotel(id)); //Arraylist que muestra todas las habitaciones de un hotel
+				Visor.mostrarHabitaciones(getHabitacionesHotel(id)); //Arraylist que muestra todas las habitaciones de un hotel
 				
 				
 				reserva = FormularioDeDatos.pedirDatosReserva(scan, reserva);
