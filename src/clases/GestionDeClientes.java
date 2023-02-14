@@ -20,7 +20,8 @@ public class GestionDeClientes {
 		do {
 		Menu.motrarMenuClientes();
 		
-		opcion=Integer.parseInt(scan.nextLine());
+		opcion=scan.nextInt();
+		scan.nextLine();
 		
 		switch (opcion) {
 		case Menu.INSERTAR_CLIENTE:

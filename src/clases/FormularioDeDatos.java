@@ -1,10 +1,10 @@
 package clases;
 
 import java.util.Scanner;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import clases.*;
+
 
 public class FormularioDeDatos {
 	
@@ -55,7 +55,7 @@ public class FormularioDeDatos {
 			
 			Cliente cliente = new Cliente();
 			
-			System.out.println("Introduce el Dni del cliente a eliminar");
+			System.out.println("Introduce el Dni ");
 			cliente.setDni(scan.nextLine());
 			
 			dni = cliente.getDni();
@@ -111,6 +111,7 @@ public class FormularioDeDatos {
 		String gerente;
 		int estrellas;
 		String compania;
+		scan.nextLine();
 		
 		
 		System.out.println("Introduce el cif de hotel");

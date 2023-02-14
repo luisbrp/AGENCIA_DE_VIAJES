@@ -8,7 +8,10 @@ public class GestionDeAgenciaViajes {
 	
 	
 	
-	public static void run(Scanner scan) throws SQLException, ParseException {
+public static void run() throws SQLException, ParseException {
+	Scanner scan = new Scanner (System.in);
+		
+	
 		int opcion;
 		
 		
@@ -41,6 +44,8 @@ public class GestionDeAgenciaViajes {
 		
 		
 	}
+
+	
 	
 
 }
