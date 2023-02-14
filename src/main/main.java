@@ -1,16 +1,22 @@
 package main;
 
 import java.sql.SQLException;
-
+import java.text.ParseException;
 import clases.GestionDeClientes;
+import clases.GestorAgenciaViajes;
 
 
 public class main {
 
-	public class Main {
-		public static void main(String[] args) throws SQLException {
-		GestionDeClientes gc = new GestionDeClientes();
-		gc.run();
+		public static void main(String[] args) throws SQLException, ParseException {
+		GestorAgenciaViajes ga = null;
+		try {
+			ga = new GestorAgenciaViajes();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		ga.run();
 		}
-}
+	}
+

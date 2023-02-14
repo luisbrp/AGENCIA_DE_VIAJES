@@ -10,12 +10,13 @@ import java.util.Scanner;
 public class GestionDeClientes {
 
 
-	public void run() throws SQLException {
+	public static void run() throws SQLException {
 		Scanner scan = new Scanner(System.in);
 		int opcion;
 		ArrayList<Cliente> clientes = new ArrayList<>();
 		Cliente cliente = new Cliente();
 		GestorBBDD gbd = new GestorBBDD();
+		String dni = null;
 		do {
 		Menu.motrarMenuClientes();
 		
@@ -29,7 +30,7 @@ public class GestionDeClientes {
 		gbd.cerrar();
 		break;
 		case Menu.ELIMINAR_CLIENTE:
-		String dni = FormularioDeDatos.pedirDniCliente(scan);
+		dni = FormularioDeDatos.pedirDniCliente(scan, dni);
 		gbd.conectar();
 		gbd.eliminarCliente(dni);
 		gbd.cerrar();
@@ -55,6 +56,6 @@ public class GestionDeClientes {
 				}
 		
 				} while (opcion != Menu.SALIR);
-				}
+	}
 
 }

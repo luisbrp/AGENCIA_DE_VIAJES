@@ -3,10 +3,9 @@ package clases;
 public class Menu {
 	
 			//menu principal
-			public static final int REGISTRAR_ALTA_CLIENTES=1;
-			public static final int REALIZAR_RESERVA=1;
-			public static final int ANULAR_RESERVA=2;
-			public static final int ALTA_DE_HOTEL=4;
+			public static final int GESTIONAR_CLIENTES=1;
+			public static final int GESTIONAR_RESERVAS=2;
+			public static final int GESTIONAR_HOTEL=3;
 			public static final int SALIR=0;
 
 			// menu cliente
@@ -24,7 +23,8 @@ public class Menu {
 			public static final int ID_HABITACION_RESERVA=5;
 			public static final int FECHA_RESERVA_INICIO_FIN=6;
 			
-			
+			static final int ANULAR_RESERVA = 2;
+			static final int REALIZAR_RESERVA = 1;
 			public static final int MOSTRAR_UNA_RESERVA = 3;
 			public static final int MOSTRAR_RESERVAS = 4;
 			
@@ -37,13 +37,9 @@ public class Menu {
 			//menu hotel
 			public static final int DATOS_HOTEL=1;
 			public static final int CREAR_HABITACION_SALIR=3;
+		
 
-			public static final int INSERTAR_CLIENTE = 1;
-			public static final int ELIMINAR_CLIENTE = 2;
-			public static final int VER_CLIENTES = 4;
-			public static final int MODIFICAR_CLIENTE = 3;
-
-		// master
+		
 			
 			
 
@@ -53,10 +49,9 @@ public class Menu {
 			public static void mostrarMenuPrincipal() {
 				System.out.println("");
 				System.out.println("------MENU PRINCIPAL-------");
-				System.out.println( REGISTRAR_ALTA_CLIENTES + ". Registrar alta clientes");
-				System.out.println(REALIZAR_RESERVA + ". Realizar reserva");
-				System.out.println(ANULAR_RESERVA + ". Anular reservar");
-				System.out.println(ALTA_DE_HOTEL + ". Alta de hotel");
+				System.out.println( GESTIONAR_CLIENTES + ". Gestionar clientes");
+				System.out.println(GESTIONAR_RESERVAS + ". Gestionar reservas");
+				System.out.println(GESTIONAR_HOTEL+ ". Gestionar hotel");
 				System.out.println(SALIR + ". Salir");
 				System.out.println("");
 				

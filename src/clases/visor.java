@@ -22,4 +22,28 @@ public class visor {
 		   }
 	 }
 
+	public static void mostrarUnaReserva(Reserva reserva) {
+		System.out.println(reserva.toString());
+	}
+	
+	public static void mostrarRervas (ArrayList<Reserva> reservas) {
+		System.out.println("Estas son todas reservas:");
+		for (int i = 0; i < reservas.size(); i++) {
+			Reserva reserva = reservas.get(i);
+			System.out.println(reserva.toString());
+		}
+	}
+	
+	public static void mostrarHotel(Hotel hotel) {
+			System.out.println(hotel.toString());
+	}
+	
+	public static void mostrarHabitaciones(ArrayList<Habitacion> habitaciones) {
+		System.out.println("Estas son todas las habitaciones:");
+		for (int i = 0; i < habitaciones.size(); i++) {
+			Habitacion habitacion = habitaciones.get(i);
+			System.out.println(habitaciones.toString());
+		}	
+	}
+
 }

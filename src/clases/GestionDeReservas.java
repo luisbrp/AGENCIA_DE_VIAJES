@@ -1,6 +1,7 @@
 package clases;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -8,10 +9,10 @@ public class GestionDeReservas {
 
 	private static final boolean ALTA = false;
 
-	public static void run() throws SQLException  {
+	public static void run() throws SQLException, ParseException  {
 		Scanner scan = new Scanner(System.in);
 		GestorBBDD gbd = new GestorBBDD();
-		Visor visor = new Visor();
+		visor visors = new visor();
 		Cliente cliente = new Cliente();
 		Reserva reserva = new Reserva();
 		ArrayList<Reserva> reservas = new ArrayList<Reserva>(); 
@@ -40,12 +41,12 @@ public class GestionDeReservas {
 				gbd.conectar();
 				id = FormularioDeDatos.PedirIdReserva(id, scan);
 				reserva = gbd.getReserva(id);
-				Visor.mostrarUnaReserva(reserva);
+				visor.mostrarUnaReserva(reserva);
 				break;
 			case Menu.MOSTRAR_RESERVAS:
 				gbd.conectar();
 				reservas = gbd.getReservas(reservas);
-				Visor.mostrarRervas(reservas);
+				visor.mostrarRervas(reservas);
 				gbd.cerrar();
 				break;
 			case Menu.SALIR:
