@@ -9,7 +9,7 @@ public class GestorAgenciaViajes {
 		int opcion;
 		GestionDeClientes gc = new GestionDeClientes();
 		GestionDeReservas gr = new GestionDeReservas();
-		GestionDeHotel gh = new GestionDeHotel();
+		GestionDeHoteles gh = new GestionDeHoteles();
 		do {
 			Menu.mostrarMenuPrincipal();
 			Scanner scan =  new Scanner(System.in);
@@ -22,7 +22,7 @@ public class GestorAgenciaViajes {
 			case Menu.GESTIONAR_RESERVAS:
 				gr.run();
 				break;
-			case Menu.GESTIONAR_HOTEL:
+			case Menu.GESTIONAR_HOTELES:
 				gh.run();
 				break;
 			case Menu.SALIR:

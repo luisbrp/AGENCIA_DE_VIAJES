@@ -10,8 +10,8 @@ import java.util.Scanner;
 public class GestionDeClientes {
 
 
-	public static void run() throws SQLException {
-		Scanner scan = new Scanner(System.in);
+	public static void run(Scanner scan) throws SQLException {
+		
 		int opcion;
 		ArrayList<Cliente> clientes = new ArrayList<>();
 		Cliente cliente = new Cliente();

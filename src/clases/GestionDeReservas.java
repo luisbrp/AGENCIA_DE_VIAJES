@@ -9,8 +9,8 @@ public class GestionDeReservas {
 
 	private static final boolean ALTA = false;
 
-	public static void run() throws SQLException, ParseException  {
-		Scanner scan = new Scanner(System.in);
+	public static void run(Scanner scan) throws SQLException, ParseException  {
+		
 		GestorBBDD gbd = new GestorBBDD();
 		Visor visors = new Visor();
 		Cliente cliente = new Cliente();

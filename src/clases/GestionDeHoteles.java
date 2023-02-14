@@ -3,10 +3,10 @@ package clases;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class GestionDeHotel {
+public class GestionDeHoteles {
 
-	public static void run() throws SQLException {
-		Scanner scan= new Scanner(System.in);
+	public static void run(Scanner scan) throws SQLException {
+		
 		int opcion;
 		
 		GestorBBDD gestorBBDD = new GestorBBDD();
