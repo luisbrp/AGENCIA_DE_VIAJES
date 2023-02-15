@@ -28,11 +28,14 @@ public class GestionDeClientes {
 		cliente = FormularioDeDatos.PedirDatosCliente(scan);
 		gbd.conectar();
 		gbd.insertarCliente(cliente);
+		Visor.mostrarCliente(cliente);
 		gbd.cerrar();
 		break;
 		case Menu.ELIMINAR_CLIENTE:
 		dni = FormularioDeDatos.pedirDniCliente(scan, dni);
 		gbd.conectar();
+	    cliente= gbd.getCliente(dni);
+	    Visor.mostrarCliente(cliente);
 		gbd.eliminarCliente(dni);
 		gbd.cerrar();
 		break;
@@ -46,7 +49,9 @@ public class GestionDeClientes {
 		case Menu.MODIFICAR_CLIENTE:
 		cliente = FormularioDeDatos.ModificarDatosCliente(cliente, scan);
 		gbd.conectar();
+		Visor.mostrarCliente(cliente);
 		gbd.modificarCliente(cliente);
+		Visor.mostrarCliente(cliente);
 		gbd.cerrar();
 		break;
 		case Menu.SALIR:

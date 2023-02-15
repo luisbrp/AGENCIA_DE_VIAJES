@@ -16,6 +16,8 @@ public class GestionDeHoteles {
 		hotel = FormularioDeDatos.pedirDatosHotel(scan);
 		gestorBBDD.conectar();
 		gestorBBDD.insertarHotel(hotel);
+		Visor.mostrarHotel(hotel);
+		
 		gestorBBDD.cerrar();
 		
 		
@@ -34,6 +36,7 @@ public class GestionDeHoteles {
 					habitacion = FormularioDeDatos.pedirDatosHabitacion(scan);
 					gestorBBDD.conectar();
 					gestorBBDD.insertarHabitacion(habitacion);
+					Visor.mostrarHabitacion(habitacion);
 					gestorBBDD.cerrar();
 					
 					break;

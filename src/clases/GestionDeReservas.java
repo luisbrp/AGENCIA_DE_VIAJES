@@ -28,6 +28,7 @@ public class GestionDeReservas {
 				gbd.conectar();
 				dni = FormularioDeDatos.pedirDniCliente(scan, dni);
 				gbd.realizarReserva(dni, scan, reserva);
+				Visor.mostrarUnaReserva(reserva);
 				gbd.cerrar();
 				break;
 			case Menu.ANULAR_RESERVA:
@@ -35,6 +36,8 @@ public class GestionDeReservas {
 				gbd.conectar();
 				id = FormularioDeDatos.PedirIdReserva(id, scan);
 				gbd.conectar();
+				reserva= gbd.getReserva(id);
+				Visor.mostrarUnaReserva(reserva);
 				gbd.anularReserva(id);
 				gbd.cerrar();
 				break;
@@ -49,7 +52,7 @@ public class GestionDeReservas {
 				scan.nextLine();
 				gbd.conectar();
 				reservas = gbd.getReservas(reservas);
-				Visor.mostrarRervas(reservas);
+				Visor.mostrarReservas(reservas);
 				gbd.cerrar();
 				break;
 			case Menu.SALIR:
