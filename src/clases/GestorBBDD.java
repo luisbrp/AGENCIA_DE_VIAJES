@@ -218,6 +218,26 @@ public class GestorBBDD extends Conector {
 		
 	}
 	
+	public ArrayList<Hotel> getHoteles() throws SQLException{
+		
+		ArrayList<Hotel> hoteles = new ArrayList<Hotel>();
+		pst= con.prepareStatement("SELECT * FROM hoteles");
+		resultado =pst.executeQuery();
+		while(resultado.next()) {
+			Hotel hotel = new Hotel();
+			
+			hotel.setId(resultado.getInt(1));
+			hotel.setCif(resultado.getString(2));
+			hotel.setNombre(resultado.getString(3));
+			hotel.setGerente(resultado.getString(4));
+			hotel.setEstrellas(resultado.getInt(5));
+			hotel.setCompania(resultado.getString(6));
+			
+			hoteles.add(hotel);
+			
+		}
+		return hoteles;
+				}
 	public void insertarHabitacion(Habitacion habitacion) {
 		
 		try {

@@ -1,6 +1,7 @@
 package clases;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GestionDeHoteles {
@@ -8,38 +9,82 @@ public class GestionDeHoteles {
 	public static void run(Scanner scan) throws SQLException {
 		
 		int opcion;
-		
-		GestorBBDD gestorBBDD = new GestorBBDD();
 		Hotel hotel = new Hotel();
-
-		Menu.mostrarMenuHotel();
-		hotel = FormularioDeDatos.pedirDatosHotel(scan);
-		gestorBBDD.conectar();
-		gestorBBDD.insertarHotel(hotel);
-		Visor.mostrarHotel(hotel);
-		
-		gestorBBDD.cerrar();
+		ArrayList <Hotel> hoteles = new ArrayList<>();
+		GestorBBDD gestorBBDD = new GestorBBDD();
 		
 		
 		
 		
 		do {
 			
-			Menu.mostrarMenuHabitacionSalir();
+			Menu.mostrarMenuHotel();
 			opcion = scan.nextInt();
 			
 
 			switch (opcion) {
-			
-				case Menu.CREAR_HABITACION:
-					Habitacion habitacion = new Habitacion();
-					habitacion = FormularioDeDatos.pedirDatosHabitacion(scan);
+				case Menu.CREAR_HOTEL:
+					
+					hotel = FormularioDeDatos.pedirDatosHotel(scan);
 					gestorBBDD.conectar();
-					gestorBBDD.insertarHabitacion(habitacion);
-					Visor.mostrarHabitacion(habitacion);
+					gestorBBDD.insertarHotel(hotel);
+					gestorBBDD.cerrar();
+					Visor.mostrarHotel(hotel);
+					
+					break;
+					
+				case Menu.VISUALIZAR_HOTELES:
+					
+					gestorBBDD.conectar();
+					hoteles=gestorBBDD.getHoteles();
+					Visor.mostrarHoteles(hoteles);
 					gestorBBDD.cerrar();
 					
 					break;
+					
+			
+				case Menu.GESTOR_HABITACIONES:
+					Habitacion habitacion = new Habitacion();
+					ArrayList <Habitacion> habitaciones= new ArrayList<>();
+					
+					int opcion_habitacion;
+					
+					do {
+						Menu.mostrarMenuHabitacion();
+						opcion_habitacion = scan.nextInt();
+						
+						switch(opcion_habitacion) {
+						
+							case Menu.CREAR_HABITACION:
+								
+								
+								Visor.mostrarHoteles(hoteles);
+								
+								habitacion = FormularioDeDatos.pedirDatosHabitacion(scan);
+								gestorBBDD.conectar();
+								gestorBBDD.insertarHabitacion(habitacion);
+								Visor.mostrarHabitacion(habitacion);
+								gestorBBDD.cerrar();
+							break;
+							
+							case Menu.VISUALIZAR_HABITACIONES_2:
+								gestorBBDD.conectar();
+								habitaciones=gestorBBDD.getHabitaciones();
+								Visor.mostrarHabitaciones(habitaciones);
+								gestorBBDD.cerrar();
+								
+							break;
+							
+							case Menu.SALIR:
+						   
+								
+						}
+					}while (opcion_habitacion != Menu.SALIR);
+					
+					
+					
+					break;
+					
 				case Menu.SALIR:
 					
 					
