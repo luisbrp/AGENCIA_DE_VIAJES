@@ -7,13 +7,12 @@ import java.util.ArrayList;
 
 public class GestionDeReservas {
 
-	private static final boolean ALTA = false;
+	
 
-	public static void run() throws SQLException, ParseException  {
-		Scanner scan = new Scanner(System.in);
+	public static void run(Scanner scan) throws SQLException, ParseException  {
+		
 		GestorBBDD gbd = new GestorBBDD();
-		Visor visors = new Visor();
-		Cliente cliente = new Cliente();
+		
 		Reserva reserva = new Reserva();
 		ArrayList<Reserva> reservas = new ArrayList<Reserva>(); 
 		int opcion_menu;
@@ -22,31 +21,38 @@ public class GestionDeReservas {
 
 		do {
 			Menu.mostrarMenuHacerReserva();
-			opcion_menu = Integer.parseInt(scan.nextLine());
+			opcion_menu = scan.nextInt();
 			switch (opcion_menu) {
 			case Menu.REALIZAR_RESERVA:
+				scan.nextLine();
 				gbd.conectar();
 				dni = FormularioDeDatos.pedirDniCliente(scan, dni);
 				gbd.realizarReserva(dni, scan, reserva);
+				Visor.mostrarUnaReserva(reserva);
 				gbd.cerrar();
 				break;
 			case Menu.ANULAR_RESERVA:
+				scan.nextLine();
 				gbd.conectar();
 				id = FormularioDeDatos.PedirIdReserva(id, scan);
 				gbd.conectar();
+				reserva= gbd.getReserva(id);
+				Visor.mostrarUnaReserva(reserva);
 				gbd.anularReserva(id);
 				gbd.cerrar();
 				break;
 			case Menu.MOSTRAR_UNA_RESERVA:
+				scan.nextLine();
 				gbd.conectar();
 				id = FormularioDeDatos.PedirIdReserva(id, scan);
 				reserva = gbd.getReserva(id);
 				Visor.mostrarUnaReserva(reserva);
 				break;
 			case Menu.MOSTRAR_RESERVAS:
+				scan.nextLine();
 				gbd.conectar();
 				reservas = gbd.getReservas(reservas);
-				Visor.mostrarRervas(reservas);
+				Visor.mostrarReservas(reservas);
 				gbd.cerrar();
 				break;
 			case Menu.SALIR:

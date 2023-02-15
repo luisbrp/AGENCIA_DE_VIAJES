@@ -5,7 +5,7 @@ public class Menu {
 			//menu principal
 			public static final int GESTIONAR_CLIENTES=1;
 			public static final int GESTIONAR_RESERVAS=2;
-			public static final int GESTIONAR_HOTEL=3;
+			public static final int GESTIONAR_HOTELES=3;
 			public static final int SALIR=0;
 
 			// menu cliente
@@ -51,7 +51,7 @@ public class Menu {
 				System.out.println("------MENU PRINCIPAL-------");
 				System.out.println( GESTIONAR_CLIENTES + ". Gestionar clientes");
 				System.out.println(GESTIONAR_RESERVAS + ". Gestionar reservas");
-				System.out.println(GESTIONAR_HOTEL+ ". Gestionar hotel");
+				System.out.println(GESTIONAR_HOTELES+ ". Gestionar hotel");
 				System.out.println(SALIR + ". Salir");
 				System.out.println("");
 				

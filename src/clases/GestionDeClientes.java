@@ -10,8 +10,8 @@ import java.util.Scanner;
 public class GestionDeClientes {
 
 
-	public static void run() throws SQLException {
-		Scanner scan = new Scanner(System.in);
+	public static void run(Scanner scan) throws SQLException {
+		
 		int opcion;
 		ArrayList<Cliente> clientes = new ArrayList<>();
 		Cliente cliente = new Cliente();
@@ -20,18 +20,22 @@ public class GestionDeClientes {
 		do {
 		Menu.motrarMenuClientes();
 		
-		opcion=Integer.parseInt(scan.nextLine());
+		opcion=scan.nextInt();
+		scan.nextLine();
 		
 		switch (opcion) {
 		case Menu.INSERTAR_CLIENTE:
 		cliente = FormularioDeDatos.PedirDatosCliente(scan);
 		gbd.conectar();
 		gbd.insertarCliente(cliente);
+		Visor.mostrarCliente(cliente);
 		gbd.cerrar();
 		break;
 		case Menu.ELIMINAR_CLIENTE:
 		dni = FormularioDeDatos.pedirDniCliente(scan, dni);
 		gbd.conectar();
+	    cliente= gbd.getCliente(dni);
+	    Visor.mostrarCliente(cliente);
 		gbd.eliminarCliente(dni);
 		gbd.cerrar();
 		break;
@@ -45,7 +49,9 @@ public class GestionDeClientes {
 		case Menu.MODIFICAR_CLIENTE:
 		cliente = FormularioDeDatos.ModificarDatosCliente(cliente, scan);
 		gbd.conectar();
+		Visor.mostrarCliente(cliente);
 		gbd.modificarCliente(cliente);
+		Visor.mostrarCliente(cliente);
 		gbd.cerrar();
 		break;
 		case Menu.SALIR:
