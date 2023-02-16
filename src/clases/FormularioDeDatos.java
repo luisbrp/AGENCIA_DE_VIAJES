@@ -78,10 +78,12 @@ public class FormularioDeDatos {
 		
 		
 		System.out.println("Introduce el id de la habitacion:");
-		reserva.setId_Habitacion(Integer.parseInt(scan.nextLine()));
+		reserva.setId_Habitacion(scan.nextInt());
 
+		scan.nextLine();
 		System.out.println("Introduce el dni:");
 		reserva.setDni(scan.nextLine());
+		
 		
 		SimpleDateFormat desde = new SimpleDateFormat("dd/MM/yyyy");
 		System.out.println("Introduce desde cuando se realiza la reserva en este formato(dd/MM/yyyy");
@@ -139,11 +141,10 @@ public class FormularioDeDatos {
 		return hotel;
 	}
 	
-	public static int pedirIdHotel (int id, Scanner scan) {
-		Hotel hotel = new Hotel();
+	public static int pedirIdHotel (Scanner scan) {
+		int id;
 		System.out.println("Introduce el id del hotel:");
-		hotel.setId(Integer.parseInt(scan.nextLine()));
-		id = hotel.getId();
+		id=scan.nextInt();
 		return id;
 	}
 	
