@@ -13,6 +13,11 @@ public class Menu {
 			final static int ELIMINAR_CLIENTE=2;
 			final static int MODIFICAR_CLIENTE = 3;
 			public static final int VER_CLIENTES = 4;
+			
+			// menu consultas clientes
+			private static int ORDENAR_APELLIDO = 1;
+			private static int ORDENAR_NOMBRE=2;
+			
 
 			
 			// menu reserva
@@ -28,18 +33,23 @@ public class Menu {
 			public static final int MOSTRAR_UNA_RESERVA = 3;
 			public static final int MOSTRAR_RESERVAS = 4;
 			
-// RAMA_HOTELES
+
 			
 			
-			//habitacion salir
-			public static final int CREAR_HABITACION = 1;
-			public static final int VISUALIZAR_HABITACIONES_2 = 2;
-			public static final int VISUALIZAR_HABITACIONES_HOTEL = 3;
+			
 			
 			//menu hotel
 			public static final int CREAR_HOTEL = 1;
 			public static final int VISUALIZAR_HOTELES=2;
 			public static final int GESTOR_HABITACIONES = 3;
+			private static final int CONSULTAS_CLIENTES = 4;
+			
+			
+			//menu habitaciones
+			public static final int CREAR_HABITACION = 1;
+			public static final int VISUALIZAR_HABITACIONES_2 = 2;
+			public static final int VISUALIZAR_HABITACIONES_HOTEL = 3;
+			private static final int COMPROBAR_CADENA = 4;
 			
 			
 			
@@ -72,9 +82,18 @@ public class Menu {
 				System.out.println( ELIMINAR_CLIENTE + ". Eliminar cliente");
 				System.out.println( MODIFICAR_CLIENTE + ". Modificar cliente");
 				System.out.println( VER_CLIENTES + ". Ver clientes");
+				System.out.println(CONSULTAS_CLIENTES+". Consultas clientes");
 				System.out.println(SALIR + ". Salir");
 				System.out.println("");
 		  }
+		 
+		public static void mostrarMenuCosultasClientes() {
+			System.out.println("--MENU CONSULTAS CLIENTES---");
+			System.out.println(ORDENAR_APELLIDO+". Ordenar clientes por apellido");
+			System.out.println(ORDENAR_NOMBRE+". Ordenar clientes por nombre");
+			System.out.println(COMPROBAR_CADENA+"Introduce un nombre o apellido y te buscaré los usuarios");
+			
+		}
 		  
 		public static void mostrarMenuHacerReserva() {
 			System.out.println("-----MENU RESERVAS-----");
@@ -103,7 +122,7 @@ public class Menu {
 			System.out.println("------MENU HABITACION-------");
 			System.out.println(CREAR_HABITACION + ". Crear habitacion");
 			System.out.println(VISUALIZAR_HABITACIONES_2+".Visualizar habitaciones");
-			System.out.println(VISUALIZAR_HABITACIONES_HOTEL +"Visualizar habitaciones de un hotel");
+			System.out.println(VISUALIZAR_HABITACIONES_HOTEL +" .Visualizar habitaciones de un hotel");
 			System.out.println( SALIR+ ". SALIR");
 			System.out.println("");
 		}
