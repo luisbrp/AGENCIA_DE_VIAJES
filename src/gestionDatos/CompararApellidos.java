@@ -1,15 +1,16 @@
-package interfaces;
+package gestionDatos;
 
 import java.util.Comparator;
+
 
 import clases.Cliente;
 
 
-public class CompararApellidos implements Comparator {
+public class CompararApellidos implements Comparator<Cliente> {
 
 	
 	
-	public int compare(Object obj1, Object obj2) {
+	public int compare(Cliente obj1, Cliente obj2) {
 		Cliente client1 = (Cliente) obj1;
 		Cliente client2 = (Cliente) obj2;
 		
