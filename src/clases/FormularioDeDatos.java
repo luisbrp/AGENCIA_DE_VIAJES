@@ -62,17 +62,16 @@ public class FormularioDeDatos {
 			
 			return dni;	
 		}
-	public static String pedirDniClientealta( Scanner scan) {
-			
-			Cliente cliente = new Cliente();
-			
-			System.out.println("Introduce el Dni del cliente a consultar");
-			cliente.setDni(scan.nextLine());
-			
-			String dni = cliente.getDni();
-			
-			return dni;	
-		}
+	
+	public static String pedirCadenaCliente(Scanner scan) {
+		
+		String cadena;
+		
+		System.out.println("Introduce una cadena de caratereres");
+		cadena=scan.nextLine();
+		
+		return cadena;
+	}
 	
 	public static Reserva pedirDatosReserva(Scanner scan, Reserva reserva) throws ParseException {
 		

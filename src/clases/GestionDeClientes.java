@@ -90,6 +90,10 @@ public class GestionDeClientes {
 						gbd.cerrar();
 					break;
 					
+					case Menu.COMPROBAR_CADENA_USUARIO:
+						gbd.conectar();
+						clientes= gbd.getClientes();
+					
 					
 				
 				}
