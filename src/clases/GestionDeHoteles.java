@@ -10,8 +10,17 @@ public class GestionDeHoteles {
 		
 		int opcion;
 		Hotel hotel = new Hotel();
+
+
+		Menu.mostrarMenuHotel();
+		hotel = FormularioDeDatos.pedirDatosHotel(scan);
+		gestorBBDD.conectar();
+		gestorBBDD.insertarHotel(hotel);
+		gestorBBDD.cerrar();
+
 		ArrayList <Hotel> hoteles = new ArrayList<>();
 		GestorBBDD gestorBBDD = new GestorBBDD();
+
 		
 		
 		
@@ -36,8 +45,11 @@ public class GestionDeHoteles {
 				case Menu.VISUALIZAR_HOTELES:
 					
 					gestorBBDD.conectar();
+rama_gestor_viajes
+					gestorBBDD.insertarHabitacion(habitacion);
 					hoteles=gestorBBDD.getHoteles();
 					Visor.mostrarHoteles(hoteles);
+
 					gestorBBDD.cerrar();
 					
 					break;
