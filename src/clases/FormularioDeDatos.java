@@ -146,13 +146,7 @@ public class FormularioDeDatos {
 		return id;
 	}
 	
-	public static String elegirHabitacionSalir (Scanner scan) {
-		String opcionAS;
-		
-		opcionAS= scan.nextLine();
-		
-		return opcionAS;
-	}
+
 	
 	public static Habitacion pedirDatosHabitacion(Scanner scan) {
 		

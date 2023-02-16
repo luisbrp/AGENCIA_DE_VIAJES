@@ -3,9 +3,11 @@ package clases;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 import interfaces.CompararApellidos;
+import interfaces.CompararNombres;
 
 public class GestionDeClientes {
 
@@ -70,11 +72,22 @@ public class GestionDeClientes {
 						gbd.conectar();
 						clientes= gbd.getClientes();
 						
-						Collections.sort(clientes, new CompararApellidos());
+						clientes.sort(new CompararApellidos());
 						
-						for (Cliente cliente2 : clientes) {
-							System.out.println(cliente2.getApellidos());
-						}
+						Visor.mostrarClientes(clientes);
+						
+						
+						gbd.cerrar();
+					break;
+					
+					case Menu.ORDENAR_USUARIO_NOMBRE:
+						gbd.conectar();
+						clientes= gbd.getClientes();
+						
+						clientes.sort(new CompararNombres());
+						
+						Visor.mostrarClientes(clientes);
+						gbd.cerrar();
 					break;
 					
 					
