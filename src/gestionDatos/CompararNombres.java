@@ -13,7 +13,5 @@ public class CompararNombres implements Comparator<Cliente> {
 		Cliente client2 = (Cliente) obj2;
 		return (client1.getNombre().toLowerCase().compareTo(client2.getNombre().toLowerCase()));
 	}
-	
-	
 
 }
