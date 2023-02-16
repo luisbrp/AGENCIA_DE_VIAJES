@@ -111,7 +111,7 @@ public class GestorBBDD extends Conector {
 		
 		if(GestorBBDD.ALTA) { //Flujo de esta condicion:
 								//Si el dni esta en la base datos, el programa seguira, sino saltara un error:
-			id = FormularioDeDatos.pedirIdHotel(id, scan); 
+			id = FormularioDeDatos.pedirIdHotel(scan); 
 			
 			if(getHabitacionesHotel(id).size()== 0) { //si el arraylist de getHabitacionesHotel no tiene ningun valor
 										
@@ -217,6 +217,27 @@ public class GestorBBDD extends Conector {
 			pst.execute();
 		
 	}
+	
+	public Hotel getHotel (int id) throws SQLException {
+		pst= con.prepareStatement("SELECT * FROM hoteles WHERE id = ? ");
+		Hotel hotel = new Hotel();
+		pst.setInt(1, id);
+		ResultSet resultado = pst.executeQuery();
+		
+		
+		while (resultado.next()) {
+		hotel.setId(resultado.getInt(1));
+		hotel.setCif(resultado.getString(2));
+		hotel.setNombre(resultado.getString(3));
+		hotel.setGerente(resultado.getString(4));
+		hotel.setEstrellas(resultado.getInt(5));
+		hotel.setCompania(resultado.getString(6));
+		}
+		
+		return hotel;
+		
+	}
+	
 	
 	public ArrayList<Hotel> getHoteles() throws SQLException{
 		

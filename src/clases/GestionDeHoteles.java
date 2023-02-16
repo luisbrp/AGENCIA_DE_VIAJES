@@ -56,14 +56,12 @@ public class GestionDeHoteles {
 						switch(opcion_habitacion) {
 						
 							case Menu.CREAR_HABITACION:
-								
-								
-								Visor.mostrarHoteles(hoteles);
-								
-								habitacion = FormularioDeDatos.pedirDatosHabitacion(scan);
 								gestorBBDD.conectar();
+								
+								hoteles= gestorBBDD.getHoteles();
+								Visor.mostrarHoteles(hoteles);
+								habitacion = FormularioDeDatos.pedirDatosHabitacion(scan);
 								gestorBBDD.insertarHabitacion(habitacion);
-								Visor.mostrarHabitacion(habitacion);
 								gestorBBDD.cerrar();
 							break;
 							
@@ -74,6 +72,16 @@ public class GestionDeHoteles {
 								gestorBBDD.cerrar();
 								
 							break;
+							case Menu.VISUALIZAR_HABITACIONES_HOTEL:
+								int id;
+								gestorBBDD.conectar();
+								id= FormularioDeDatos.pedirIdHotel(scan);
+								hotel= gestorBBDD.getHotel(id);
+								habitaciones=gestorBBDD.getHabitacionesHotel(id);
+								
+								Visor.mostrarHotel(hotel);
+								Visor.mostrarHabitaciones(habitaciones);
+								gestorBBDD.cerrar();
 							
 							case Menu.SALIR:
 						   

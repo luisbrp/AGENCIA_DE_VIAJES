@@ -34,11 +34,13 @@ public class Menu {
 			//habitacion salir
 			public static final int CREAR_HABITACION = 1;
 			public static final int VISUALIZAR_HABITACIONES_2 = 2;
+			public static final int VISUALIZAR_HABITACIONES_HOTEL = 3;
 			
 			//menu hotel
 			public static final int CREAR_HOTEL = 1;
 			public static final int VISUALIZAR_HOTELES=2;
 			public static final int GESTOR_HABITACIONES = 3;
+			
 			
 			
 			
@@ -101,6 +103,7 @@ public class Menu {
 			System.out.println("------MENU HABITACION-------");
 			System.out.println(CREAR_HABITACION + ". Crear habitacion");
 			System.out.println(VISUALIZAR_HABITACIONES_2+".Visualizar habitaciones");
+			System.out.println(VISUALIZAR_HABITACIONES_HOTEL +"Visualizar habitaciones de un hotel");
 			System.out.println( SALIR+ ". SALIR");
 			System.out.println("");
 		}
