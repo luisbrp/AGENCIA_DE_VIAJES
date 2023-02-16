@@ -22,6 +22,7 @@ public class GestionDeReservas {
 		do {
 			Menu.mostrarMenuHacerReserva();
 			opcion_menu = scan.nextInt();
+			
 			switch (opcion_menu) {
 			case Menu.REALIZAR_RESERVA:
 				scan.nextLine();
