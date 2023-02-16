@@ -78,10 +78,12 @@ public class FormularioDeDatos {
 		
 		
 		System.out.println("Introduce el id de la habitacion:");
-		reserva.setId_Habitacion(Integer.parseInt(scan.nextLine()));
+		reserva.setId_Habitacion(scan.nextInt());
 
+		scan.nextLine();
 		System.out.println("Introduce el dni:");
 		reserva.setDni(scan.nextLine());
+		
 		
 		SimpleDateFormat desde = new SimpleDateFormat("dd/MM/yyyy");
 		System.out.println("Introduce desde cuando se realiza la reserva en este formato(dd/MM/yyyy");
