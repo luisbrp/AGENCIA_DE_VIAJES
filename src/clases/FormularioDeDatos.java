@@ -139,11 +139,10 @@ public class FormularioDeDatos {
 		return hotel;
 	}
 	
-	public static int pedirIdHotel (int id, Scanner scan) {
-		Hotel hotel = new Hotel();
+	public static int pedirIdHotel (Scanner scan) {
+		int id;
 		System.out.println("Introduce el id del hotel:");
-		hotel.setId(Integer.parseInt(scan.nextLine()));
-		id = hotel.getId();
+		id=scan.nextInt();
 		return id;
 	}
 	
