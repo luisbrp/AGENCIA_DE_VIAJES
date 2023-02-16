@@ -6,8 +6,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-import interfaces.CompararApellidos;
-import interfaces.CompararNombres;
+import gestionDatos.CompararApellidos;
+import gestionDatos.CompararNombres;
 
 public class GestionDeClientes {
 
