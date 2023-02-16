@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import java.util.Scanner;
 
+import gestionDatos.BuscadorCadena;
 import gestionDatos.CompararApellidos;
 import gestionDatos.CompararNombres;
 
@@ -91,9 +92,14 @@ public class GestionDeClientes {
 					break;
 					
 					case Menu.COMPROBAR_CADENA_USUARIO:
+						String cadenaU;
 						gbd.conectar();
 						clientes= gbd.getClientes();
-					
+						cadenaU=FormularioDeDatos.pedirCadenaCliente(scan);
+						clientes=BuscadorCadena.clientesCadena(cadenaU,clientes);
+						
+						Visor.mostrarClientes(clientes);
+						gbd.cerrar();
 					
 				
 				}

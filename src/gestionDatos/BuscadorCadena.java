@@ -5,17 +5,18 @@ import java.util.Iterator;
 
 import clases.Cliente;
 
-public class BuscardorCadena {
-	public ArrayList<Cliente> clientesCadena(String cadena,ArrayList<Cliente> clientes) {
+public class BuscadorCadena {
+	public static ArrayList<Cliente> clientesCadena(String cadena,ArrayList<Cliente> clientes) {
 
 		
 
 		Iterator<Cliente> it = clientes.iterator();
 		while (it.hasNext()) {
 			Cliente cliente = it.next();
-			if (!cadena.contains(cliente.getNombre()) ) {
+			if (!cliente.getNombre().toLowerCase().contains(cadena) 
+					&& 
+			   (!cliente.getApellidos().toLowerCase().contains(cadena))) {
 				it.remove();
-				System.out.println("Usuario eliminado con exito");
 
 			}
 			
