@@ -51,7 +51,7 @@ public class GestorBBDD extends Conector {
 	pst.execute();
 }
 
-	public ArrayList<Cliente> verClientes () throws SQLException {
+	public ArrayList<Cliente> getClientes () throws SQLException {
 	   
 	ArrayList<Cliente> clientes = new ArrayList<>();
 	

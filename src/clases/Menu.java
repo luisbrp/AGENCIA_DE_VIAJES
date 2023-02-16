@@ -9,14 +9,16 @@ public class Menu {
 			public static final int SALIR=0;
 
 			// menu cliente
-			final static int INSERTAR_CLIENTE=1;
-			final static int ELIMINAR_CLIENTE=2;
-			final static int MODIFICAR_CLIENTE = 3;
+			public final static int INSERTAR_CLIENTE=1;
+			public final static int ELIMINAR_CLIENTE=2;
+			public final static int MODIFICAR_CLIENTE = 3;
 			public static final int VER_CLIENTES = 4;
+			public static final int CONSULTAS_CLIENTES = 5;
 			
 			// menu consultas clientes
-			private static int ORDENAR_APELLIDO = 1;
-			private static int ORDENAR_NOMBRE=2;
+			public final static int ORDENAR_USUARIO_APELLIDO = 1;
+			public final static int ORDENAR_USUARIO_NOMBRE=2;
+			public final static int COMPROBAR_CADENA_USUARIO = 3;
 			
 
 			
@@ -28,8 +30,9 @@ public class Menu {
 			public static final int ID_HABITACION_RESERVA=5;
 			public static final int FECHA_RESERVA_INICIO_FIN=6;
 			
-			static final int ANULAR_RESERVA = 2;
-			static final int REALIZAR_RESERVA = 1;
+			
+			public static final int ANULAR_RESERVA = 2;
+			public static final int REALIZAR_RESERVA = 1;
 			public static final int MOSTRAR_UNA_RESERVA = 3;
 			public static final int MOSTRAR_RESERVAS = 4;
 			
@@ -42,14 +45,14 @@ public class Menu {
 			public static final int CREAR_HOTEL = 1;
 			public static final int VISUALIZAR_HOTELES=2;
 			public static final int GESTOR_HABITACIONES = 3;
-			private static final int CONSULTAS_CLIENTES = 4;
+			
 			
 			
 			//menu habitaciones
 			public static final int CREAR_HABITACION = 1;
 			public static final int VISUALIZAR_HABITACIONES_2 = 2;
 			public static final int VISUALIZAR_HABITACIONES_HOTEL = 3;
-			private static final int COMPROBAR_CADENA = 4;
+			
 			
 			
 			
@@ -74,7 +77,7 @@ public class Menu {
 				System.out.println("");
 				
 			}
-			
+		
 		  public static void motrarMenuClientes() {
 			  System.out.println("");
 				System.out.println("------MENU CLIENTES-------");
@@ -89,10 +92,10 @@ public class Menu {
 		 
 		public static void mostrarMenuCosultasClientes() {
 			System.out.println("--MENU CONSULTAS CLIENTES---");
-			System.out.println(ORDENAR_APELLIDO+". Ordenar clientes por apellido");
-			System.out.println(ORDENAR_NOMBRE+". Ordenar clientes por nombre");
-			System.out.println(COMPROBAR_CADENA+"Introduce un nombre o apellido y te buscaré los usuarios");
-			
+			System.out.println(ORDENAR_USUARIO_APELLIDO+". Ordenar clientes por apellido");
+			System.out.println(ORDENAR_USUARIO_NOMBRE+". Ordenar clientes por nombre");
+			System.out.println(COMPROBAR_CADENA_USUARIO+". Introduce un nombre o apellido y te buscaré los usuarios");
+			System.out.println(SALIR+". Salir");
 		}
 		  
 		public static void mostrarMenuHacerReserva() {
