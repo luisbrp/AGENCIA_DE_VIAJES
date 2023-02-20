@@ -49,6 +49,13 @@ public class GestionDeReservas {
 				visor.mostrarRervas(reservas);
 				gbd.cerrar();
 				break;
+			case Menu.CONSULTAR_RESERVA:
+				gbd.conectar();
+				reserva = FormularioDeDatos.PedirFechaReserva(reserva, scan);
+				gbd.getReservaPorFecha(reserva);
+				visor.mostrarUnaReserva(reserva);
+				gbd.cerrar();
+				break;
 			case Menu.SALIR:
 				break;
 			default:

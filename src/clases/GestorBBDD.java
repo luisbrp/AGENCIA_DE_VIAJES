@@ -96,7 +96,7 @@ public class GestorBBDD extends Conector {
 		boolean ALTA = false;
 
 			if (getCliente(dni).getDni().equals(dni)) { //Aqui comprobamos que el dni que esta en la base de datos
-														//es igual que el que nos pasa el usuario por teclado
+														//sea igual que el que nos pasa el usuario por teclado
 				ALTA = true;
 			}
 		return ALTA;
@@ -198,7 +198,28 @@ public class GestorBBDD extends Conector {
 		}
 		return reservas;
 	}
+	
+	public Reserva getReservaPorFecha(Reserva reserva) throws SQLException {
 
+		pst = con.prepareStatement("SELECT * FROM reservas WHERE desde>? AND hasta<?");
+		
+		pst.setDate(1, new Date(reserva.getDesde().getTime()));
+		pst.setDate(2, new Date(reserva.getHasta().getTime()));
+	
+		resultado = null;
+		
+			resultado = pst.executeQuery();
+	
+			if (resultado.next()) {
+				reserva.setId(resultado.getInt(1));
+				reserva.setId_Habitacion(resultado.getInt(2));
+				reserva.setDni(resultado.getString(3));
+				reserva.setDesde(resultado.getDate(4));
+				reserva.setHasta(resultado.getDate(5));
+			}
+	
+		return reserva;
+	}
 
 	
 	
