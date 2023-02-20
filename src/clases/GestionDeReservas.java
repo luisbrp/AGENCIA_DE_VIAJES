@@ -1,5 +1,6 @@
 package clases;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Scanner;
@@ -12,6 +13,8 @@ public class GestionDeReservas {
 	public static void run() throws SQLException, ParseException  {
 		Scanner scan = new Scanner(System.in);
 		GestorBBDD gbd = new GestorBBDD();
+		Date desde = null;
+		Date hasta = null;
 		visor visors = new visor();
 		Cliente cliente = new Cliente();
 		Reserva reserva = new Reserva();
@@ -52,7 +55,7 @@ public class GestionDeReservas {
 			case Menu.CONSULTAR_RESERVA:
 				gbd.conectar();
 				reserva = FormularioDeDatos.PedirFechaReserva(reserva, scan);
-				gbd.getReservaPorFecha(reserva);
+				gbd.getReservaPorFecha(desde, hasta);
 				visor.mostrarUnaReserva(reserva);
 				gbd.cerrar();
 				break;

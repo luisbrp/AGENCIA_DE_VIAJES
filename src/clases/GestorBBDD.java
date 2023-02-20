@@ -199,16 +199,18 @@ public class GestorBBDD extends Conector {
 		return reservas;
 	}
 	
-	public Reserva getReservaPorFecha(Reserva reserva) throws SQLException {
+	public Reserva getReservaPorFecha(Date desde, Date hasta) throws SQLException {
 
 		pst = con.prepareStatement("SELECT * FROM reservas WHERE desde>? AND hasta<?");
 		
-		pst.setDate(1, new Date(reserva.getDesde().getTime()));
-		pst.setDate(2, new Date(reserva.getHasta().getTime()));
+		pst.setDate(1, desde);
+		pst.setDate(2, hasta);
 	
 		resultado = null;
 		
 			resultado = pst.executeQuery();
+			
+			Reserva reserva = new Reserva();
 	
 			if (resultado.next()) {
 				reserva.setId(resultado.getInt(1));
@@ -216,6 +218,8 @@ public class GestorBBDD extends Conector {
 				reserva.setDni(resultado.getString(3));
 				reserva.setDesde(resultado.getDate(4));
 				reserva.setHasta(resultado.getDate(5));
+				
+				visor.mostrarUnaReserva(getReservaPorFecha(desde, hasta));
 			}
 	
 		return reserva;
