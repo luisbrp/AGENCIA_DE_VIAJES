@@ -1,10 +1,10 @@
 package clases;
 
 import java.util.Scanner;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import clases.*;
+
 
 public class FormularioDeDatos {
 	
@@ -55,33 +55,34 @@ public class FormularioDeDatos {
 			
 			Cliente cliente = new Cliente();
 			
-			System.out.println("Introduce el Dni del cliente a eliminar");
+			System.out.println("Introduce el Dni ");
 			cliente.setDni(scan.nextLine());
 			
 			dni = cliente.getDni();
 			
 			return dni;	
 		}
-	public static String pedirDniClientealta( Scanner scan) {
-			
-			Cliente cliente = new Cliente();
-			
-			System.out.println("Introduce el Dni del cliente a consultar");
-			cliente.setDni(scan.nextLine());
-			
-			String dni = cliente.getDni();
-			
-			return dni;	
-		}
+	
+	public static String pedirCadenaCliente(Scanner scan) {
+		
+		String cadena;
+		
+		System.out.println("Introduce una cadena de caratereres");
+		cadena=scan.nextLine();
+		
+		return cadena;
+	}
 	
 	public static Reserva pedirDatosReserva(Scanner scan, Reserva reserva) throws ParseException {
 		
 		
 		System.out.println("Introduce el id de la habitacion:");
-		reserva.setId_Habitacion(Integer.parseInt(scan.nextLine()));
+		reserva.setId_Habitacion(scan.nextInt());
 
+		scan.nextLine();
 		System.out.println("Introduce el dni:");
 		reserva.setDni(scan.nextLine());
+		
 		
 		SimpleDateFormat desde = new SimpleDateFormat("dd/MM/yyyy");
 		System.out.println("Introduce desde cuando se realiza la reserva en este formato(dd/MM/yyyy");
@@ -133,6 +134,7 @@ public class FormularioDeDatos {
 		String gerente;
 		int estrellas;
 		String compania;
+		scan.nextLine();
 		
 		
 		System.out.println("Introduce el cif de hotel");
@@ -160,21 +162,14 @@ public class FormularioDeDatos {
 		return hotel;
 	}
 	
-	public static int pedirIdHotel (int id, Scanner scan) {
-		Hotel hotel = new Hotel();
+	public static int pedirIdHotel (Scanner scan) {
+		int id;
 		System.out.println("Introduce el id del hotel:");
-		hotel.setId(Integer.parseInt(scan.nextLine()));
-		id = hotel.getId();
+		id=scan.nextInt();
 		return id;
 	}
 	
-	public static String elegirHabitacionSalir (Scanner scan) {
-		String opcionAS;
-		
-		opcionAS= scan.nextLine();
-		
-		return opcionAS;
-	}
+
 	
 	public static Habitacion pedirDatosHabitacion(Scanner scan) {
 		

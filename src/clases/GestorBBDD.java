@@ -2,6 +2,7 @@ package clases;
 
 
 import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +10,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.mysql.cj.protocol.Resultset;
+
 
 public class GestorBBDD extends Conector {
 	
@@ -50,7 +51,7 @@ public class GestorBBDD extends Conector {
 	pst.execute();
 }
 
-	public ArrayList<Cliente> verClientes () throws SQLException {
+	public ArrayList<Cliente> getClientes () throws SQLException {
 	   
 	ArrayList<Cliente> clientes = new ArrayList<>();
 	
@@ -110,7 +111,7 @@ public class GestorBBDD extends Conector {
 		
 		if(GestorBBDD.ALTA) { //Flujo de esta condicion:
 								//Si el dni esta en la base datos, el programa seguira, sino saltara un error:
-			id = FormularioDeDatos.pedirIdHotel(id, scan); 
+			id = FormularioDeDatos.pedirIdHotel(scan); 
 			
 			if(getHabitacionesHotel(id).size()== 0) { //si el arraylist de getHabitacionesHotel no tiene ningun valor
 										
@@ -118,7 +119,7 @@ public class GestorBBDD extends Conector {
 			}
 			else {												//Si no, el programa mostrara todas las habitaciones que tiene dicho hotel.
 				
-				visor.mostrarHabitaciones(getHabitacionesHotel(id)); //Arraylist que muestra todas las habitaciones de un hotel
+				Visor.mostrarHabitaciones(getHabitacionesHotel(id)); //Arraylist que muestra todas las habitaciones de un hotel
 				
 				
 				reserva = FormularioDeDatos.pedirDatosReserva(scan, reserva);
@@ -270,6 +271,47 @@ public class GestorBBDD extends Conector {
 		
 	}
 	
+	public Hotel getHotel (int id) throws SQLException {
+		pst= con.prepareStatement("SELECT * FROM hoteles WHERE id = ? ");
+		Hotel hotel = new Hotel();
+		pst.setInt(1, id);
+		ResultSet resultado = pst.executeQuery();
+		
+		
+		while (resultado.next()) {
+		hotel.setId(resultado.getInt(1));
+		hotel.setCif(resultado.getString(2));
+		hotel.setNombre(resultado.getString(3));
+		hotel.setGerente(resultado.getString(4));
+		hotel.setEstrellas(resultado.getInt(5));
+		hotel.setCompania(resultado.getString(6));
+		}
+		
+		return hotel;
+		
+	}
+	
+	
+	public ArrayList<Hotel> getHoteles() throws SQLException{
+		
+		ArrayList<Hotel> hoteles = new ArrayList<Hotel>();
+		pst= con.prepareStatement("SELECT * FROM hoteles");
+		resultado =pst.executeQuery();
+		while(resultado.next()) {
+			Hotel hotel = new Hotel();
+			
+			hotel.setId(resultado.getInt(1));
+			hotel.setCif(resultado.getString(2));
+			hotel.setNombre(resultado.getString(3));
+			hotel.setGerente(resultado.getString(4));
+			hotel.setEstrellas(resultado.getInt(5));
+			hotel.setCompania(resultado.getString(6));
+			
+			hoteles.add(hotel);
+			
+		}
+		return hoteles;
+				}
 	public void insertarHabitacion(Habitacion habitacion) {
 		
 		try {

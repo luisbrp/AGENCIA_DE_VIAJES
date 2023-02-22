@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 public class GestionDeReservas {
 
-	private static final boolean ALTA = false;
+	
 
-	public static void run() throws SQLException, ParseException  {
-		Scanner scan = new Scanner(System.in);
+	public static void run(Scanner scan) throws SQLException, ParseException  {
+		
 		GestorBBDD gbd = new GestorBBDD();
 		Reserva reserva = new Reserva();
 		ArrayList<Reserva> reservas = new ArrayList<Reserva>(); 
@@ -21,40 +21,47 @@ public class GestionDeReservas {
 
 		do {
 			Menu.mostrarMenuHacerReserva();
-			opcion_menu = Integer.parseInt(scan.nextLine());
+			opcion_menu = scan.nextInt();
+			
 			switch (opcion_menu) {
 			case Menu.REALIZAR_RESERVA:
+				scan.nextLine();
 				gbd.conectar();
 				dni = FormularioDeDatos.pedirDniCliente(scan, dni);
 				gbd.realizarReserva(dni, scan, reserva);
+				Visor.mostrarUnaReserva(reserva);
 				gbd.cerrar();
 				break;
 			case Menu.ANULAR_RESERVA:
+				scan.nextLine();
 				gbd.conectar();
 				id = FormularioDeDatos.PedirIdReserva(id, scan);
 				gbd.anularReserva(id);
 				gbd.cerrar();
 				break;
 			case Menu.MOSTRAR_UNA_RESERVA:
+				scan.nextLine();
 				gbd.conectar();
 				id = FormularioDeDatos.PedirIdReserva(id, scan);
 				reserva = gbd.getReserva(id);
-				visor.mostrarUnaReserva(reserva);
+				Visor.mostrarUnaReserva(reserva);
 				break;
 			case Menu.MOSTRAR_RESERVAS:
+				scan.nextLine();
 				gbd.conectar();
 				reservas = gbd.getReservas();
-				visor.mostrarReservas(reservas);
+				reservas = gbd.getReservas();
+				Visor.mostrarReservas(reservas);
 				gbd.cerrar();
 				break;
 			case Menu.CONSULTAR_RESERVA:
 				gbd.conectar();
-				visor.mostrarReservas(gbd.getReservaPorFecha(new Date(FormularioDeDatos.PedirFechaDesde(scan).getTime()), new Date(FormularioDeDatos.PedirFechaHasta(scan).getTime())));;
+				Visor.mostrarReservas(gbd.getReservaPorFecha(new Date(FormularioDeDatos.PedirFechaDesde(scan).getTime()), new Date(FormularioDeDatos.PedirFechaHasta(scan).getTime())));;
 				gbd.cerrar();
 				break;
 			case Menu.CONSTULAR_RESERVA_CLIENTE:
 				gbd.conectar();
-				visor.mostrarReservas(gbd.getReservasCliente(FormularioDeDatos.pedirDniCliente(scan, dni)));
+				Visor.mostrarReservas(gbd.getReservasCliente(FormularioDeDatos.pedirDniCliente(scan, dni)));
 				gbd.cerrar();
 			case Menu.SALIR:
 				break;
