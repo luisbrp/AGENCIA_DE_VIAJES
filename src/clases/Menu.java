@@ -35,6 +35,7 @@ public class Menu {
 			public static final int REALIZAR_RESERVA = 1;
 			public static final int MOSTRAR_UNA_RESERVA = 3;
 			public static final int MOSTRAR_RESERVAS = 4;
+			public static final int CONSULTAS_RESERVAS = 5;
 			
 
 			
@@ -54,8 +55,9 @@ public class Menu {
 			public static final int VISUALIZAR_HABITACIONES_HOTEL = 3;
 			
 			//menu consultas reservas
-			private static final int RESERVAS_DOS_FECHAS = 1;
-			private static final int RESERVAS_CLIENTE = 2;
+			public static final int RESERVAS_DOS_FECHAS = 1;
+			public static final int RESERVAS_CLIENTE = 2;
+			
 			
 			
 			
@@ -108,6 +110,7 @@ public class Menu {
 			System.out.println(ANULAR_RESERVA+". Anular reserva");
 			System.out.println(MOSTRAR_UNA_RESERVA+". Mostrar reserva");
 			System.out.println(MOSTRAR_RESERVAS+". Mostrar reservas");
+			System.out.println(CONSULTAS_RESERVAS +". Cosultas reservas");
 			System.out.println(SALIR+". Salir");
 			System.out.println("Escoja una opcion:");
 		}

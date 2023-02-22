@@ -3,7 +3,11 @@ package clases;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Scanner;
+
+import gestionDatos.Filtrador_Fechas;
+
 import java.util.ArrayList;
+import java.util.Date;
 
 public class GestionDeReservas {
 
@@ -57,10 +61,56 @@ public class GestionDeReservas {
 				gbd.cerrar();
 				break;
 			case Menu.CONSULTAS_RESERVAS:
+				int opcion_consulta;
 				do {
 					Menu.mostrarMenuConsultasReservas();
 					
-				}
+					opcion_consulta=scan.nextInt();
+					
+					switch(opcion_consulta) {
+					
+					case Menu.RESERVAS_DOS_FECHAS:
+						scan.nextLine();
+						gbd.conectar();
+						Date fechaI;
+						Date fechaF;
+						
+						
+						fechaI = FormularioDeDatos.fechaInicio(scan);
+						fechaF = FormularioDeDatos.fechaFin(scan);
+						reservas= gbd.getReservas(reservas);
+						
+						
+						reservas =Filtrador_Fechas.buscarReserva(fechaI, fechaF, reservas);
+						
+						Visor.mostrarReservas(reservas);
+						
+						gbd.cerrar();
+						break;
+					case Menu.RESERVAS_CLIENTE:
+						scan.nextLine();
+						String DNI = null;
+						gbd.conectar();
+						
+						DNI = FormularioDeDatos.pedirDniCliente(scan, DNI);
+						reservas= gbd.getReservas(reservas);
+						reservas = gbd.reservasCliente(DNI);
+						
+						Visor.mostrarReservas(reservas);
+						
+						gbd.cerrar();
+						
+						
+						break;
+						
+					case Menu.SALIR:
+						break;
+						
+						
+					
+					}
+					
+				} while (opcion_consulta !=Menu.SALIR);
 			case Menu.SALIR:
 				break;
 			default:

@@ -331,5 +331,33 @@ public class GestorBBDD extends Conector {
 		return habitaciones;
 	}
 	
+	public ArrayList <Reserva> reservasCliente (String DNI) throws SQLException{
+		
+		
+		
+		ArrayList <Reserva> reservas = new ArrayList <>();
+		
+		pst = con.prepareStatement("SELECT * FROM `reservas` WHERE dni=?");
+		
+		pst.setString(1, DNI);
+		
+		resultado = pst.executeQuery();
+		
+		while(resultado.next()) {
+			
+			Reserva reserva = new Reserva ();
+			
+			reserva.setId(resultado.getInt(1));
+			reserva.setId_Habitacion(resultado.getInt(2));
+			reserva.setDni(resultado.getString(3));
+			reserva.setDesde(resultado.getDate(4));
+			reserva.setHasta(resultado.getDate(5));
+			
+			reservas.add(reserva);
+			
+		}
+		return reservas;
+	}
+	
 }
 
