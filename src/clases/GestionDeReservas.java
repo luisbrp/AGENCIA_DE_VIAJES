@@ -56,6 +56,11 @@ public class GestionDeReservas {
 				Visor.mostrarReservas(reservas);
 				gbd.cerrar();
 				break;
+			case Menu.CONSULTAS_RESERVAS:
+				do {
+					Menu.mostrarMenuConsultasReservas();
+					
+				}
 			case Menu.SALIR:
 				break;
 			default:

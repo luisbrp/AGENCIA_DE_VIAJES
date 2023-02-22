@@ -1,5 +1,6 @@
 package clases;
 
+import java.util.Date;
 import java.util.Scanner;
 
 import java.text.ParseException;
@@ -182,8 +183,33 @@ public class FormularioDeDatos {
 		
 		
 	}
-}
 	
+	public static Date fechaInicio (Scanner scan) throws ParseException{
+		Date fechaInicio;
+		SimpleDateFormat formatoLecturaFecha = new SimpleDateFormat("dd-MM-yyyy");
+		
+		System.out.println("Introduce la fecha de inicio");
+		fechaInicio= formatoLecturaFecha.parse(scan.nextLine());
+		
+		
+		
+		return fechaInicio;
+	}
+	
+	public static Date fechaFin (Scanner scan) throws ParseException{
+		Date fechaFin;
+		SimpleDateFormat formatoLecturaFecha = new SimpleDateFormat("dd-MM-yyyy");
+		
+		System.out.println("Introduce la fecha de fin");
+		fechaFin= formatoLecturaFecha.parse(scan.nextLine());
+		
+		
+		
+		return fechaFin;
+	}
+	
+	
+}
 
 	
 

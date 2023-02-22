@@ -53,6 +53,10 @@ public class Menu {
 			public static final int VISUALIZAR_HABITACIONES_2 = 2;
 			public static final int VISUALIZAR_HABITACIONES_HOTEL = 3;
 			
+			//menu consultas reservas
+			private static final int RESERVAS_DOS_FECHAS = 1;
+			private static final int RESERVAS_CLIENTE = 2;
+			
 			
 			
 			
@@ -130,6 +134,14 @@ public class Menu {
 			System.out.println("");
 		}
 		
+		public static void mostrarMenuConsultasReservas() {
+			System.out.println("");
+			System.out.println("---CONSULTAS RESERVAS----");
+			System.out.println(RESERVAS_DOS_FECHAS+" .Consulta las reservas entre dos fechas");
+			System.out.println(RESERVAS_CLIENTE+" .Consultar las reservas de un cliente ");
+			System.out.println(SALIR+".SALIR");
+			
+		}
 
 		
 
