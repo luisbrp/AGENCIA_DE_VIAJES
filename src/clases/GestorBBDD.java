@@ -331,5 +331,61 @@ public class GestorBBDD extends Conector {
 		return habitaciones;
 	}
 	
+	public Hotel buscarHotelNombre (String nombreHotel) throws SQLException {
+		Hotel hotel = new Hotel();
+		PreparedStatement pst;
+		ResultSet resultado; 
+		
+		pst= con.prepareStatement ("SELECT * FROM `hoteles` WHERE nombre=?");
+		
+		pst.setString(1, nombreHotel);
+		
+		resultado= pst.executeQuery();
+		resultado.next();
+		
+		hotel.setId(resultado.getInt(1));
+		hotel.setCif(resultado.getString(2));
+		hotel.setNombre(resultado.getString(3));
+		hotel.setGerente(resultado.getString(4));
+		hotel.setEstrellas(resultado.getInt(5));
+		hotel.setCompania(resultado.getString(6));
+		
+		
+		return hotel;
+		
+		
+	}
+	
+public ArrayList <Habitacion> buscarHabitaciones (int idHotel) throws SQLException{
+		
+		ArrayList <Habitacion> habitaciones = new ArrayList<>();
+		PreparedStatement pst;
+		ResultSet resultado;
+		
+		pst = con.prepareStatement("SELECT * FROM habitaciones WHERE id_hotel=?");
+		
+		pst.setInt(1, idHotel);
+		
+		resultado = pst.executeQuery();
+		
+	while(resultado.next()) {
+		
+		Habitacion habitacion = new Habitacion();
+		
+		habitacion.setId(resultado.getInt(1));
+		habitacion.setId_hotel(resultado.getInt(2));
+		habitacion.setNumero(resultado.getString(3));
+		habitacion.setDescripcion(resultado.getNString(4));
+		habitacion.setPrecio(resultado.getInt(5));
+		
+		habitaciones.add(habitacion);
+		
+		
+		
+	}
+	
+	return habitaciones;
+	}
+	
 }
 
