@@ -23,5 +23,7 @@ public class BuscadorCadena {
 		}
 		return clientes;
 	}
+	
+	
 
 }

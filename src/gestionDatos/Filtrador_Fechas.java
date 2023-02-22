@@ -1,5 +1,6 @@
 package gestionDatos;
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -20,10 +21,16 @@ public class Filtrador_Fechas {
 					it.remove();
 
 				}
+			
 				
 			}
 			return reservas;
+			
 		}
+		
+		
+		
+		
 
 	}
 	

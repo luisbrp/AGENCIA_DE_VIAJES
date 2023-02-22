@@ -17,6 +17,12 @@ public class CompararApellidos implements Comparator<Cliente> {
 		return(client1.getApellidos().toLowerCase().compareTo(client2.getApellidos().toLowerCase()));
 	}
 	
+	//void//
+	
+	//clientes.sort(new CompararApellidos());
+	
+	
 	
 
 }
+
