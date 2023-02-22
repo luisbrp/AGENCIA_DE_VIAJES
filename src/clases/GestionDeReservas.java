@@ -55,11 +55,13 @@ public class GestionDeReservas {
 				gbd.cerrar();
 				break;
 			case Menu.CONSULTAR_RESERVA:
+				scan.nextLine();
 				gbd.conectar();
 				Visor.mostrarReservas(gbd.getReservaPorFecha(new Date(FormularioDeDatos.PedirFechaDesde(scan).getTime()), new Date(FormularioDeDatos.PedirFechaHasta(scan).getTime())));;
 				gbd.cerrar();
 				break;
 			case Menu.CONSTULAR_RESERVA_CLIENTE:
+				scan.nextLine();
 				gbd.conectar();
 				Visor.mostrarReservas(gbd.getReservasCliente(FormularioDeDatos.pedirDniCliente(scan, dni)));
 				gbd.cerrar();
