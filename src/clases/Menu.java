@@ -35,6 +35,8 @@ public class Menu {
 			public static final int REALIZAR_RESERVA = 1;
 			public static final int MOSTRAR_UNA_RESERVA = 3;
 			public static final int MOSTRAR_RESERVAS = 4;
+			public static final int CONSULTAR_RESERVA = 5;
+			public static final int CONSTULAR_RESERVA_CLIENTE = 6;
 			
 
 			
@@ -104,6 +106,8 @@ public class Menu {
 			System.out.println(ANULAR_RESERVA+". Anular reserva");
 			System.out.println(MOSTRAR_UNA_RESERVA+". Mostrar reserva");
 			System.out.println(MOSTRAR_RESERVAS+". Mostrar reservas");
+			System.out.println(CONSULTAR_RESERVA+ ". Consular reseva entre fechas");
+			System.out.println(CONSTULAR_RESERVA_CLIENTE+ ". Consultar reserva por cliente");
 			System.out.println(SALIR+". Salir");
 			System.out.println("Escoja una opcion:");
 		}

@@ -97,7 +97,7 @@ public class GestorBBDD extends Conector {
 		boolean ALTA = false;
 
 			if (getCliente(dni).getDni().equals(dni)) { //Aqui comprobamos que el dni que esta en la base de datos
-														//es igual que el que nos pasa el usuario por teclado
+														//sea igual que el que nos pasa el usuario por teclado
 				ALTA = true;
 			}
 		return ALTA;
@@ -177,18 +177,18 @@ public class GestorBBDD extends Conector {
 		
 	}
 
-	public ArrayList<Reserva> getReservas(ArrayList<Reserva> reservas) throws SQLException {
-
+	public ArrayList<Reserva> getReservas() throws SQLException {
+		ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+		
 		pst = con.prepareStatement("SELECT * FROM reservas");
-
-		Reserva reserva = new Reserva();
 
 		resultado = null;
 
 		resultado = pst.executeQuery();
 
 		while (resultado.next()) {
-
+			Reserva reserva = new Reserva();
+			
 			reserva.setId(resultado.getInt(1));
 			reserva.setId_Habitacion(resultado.getInt(2));
 			reserva.setDni(resultado.getString(3));
@@ -199,7 +199,60 @@ public class GestorBBDD extends Conector {
 		}
 		return reservas;
 	}
-
+	
+	public ArrayList<Reserva> getReservaPorFecha(Date desde, Date hasta) throws SQLException {
+		
+		ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+		
+		pst = con.prepareStatement("SELECT * FROM reservas WHERE desde>? AND hasta<?");
+		
+		pst.setDate(1, desde);
+		pst.setDate(2, hasta);
+	
+		
+			resultado = pst.executeQuery();
+			
+			Reserva reserva = new Reserva();
+	
+			while (resultado.next()) {
+				reserva.setId(resultado.getInt(1));
+				reserva.setId_Habitacion(resultado.getInt(2));
+				reserva.setDni(resultado.getString(3));
+				reserva.setDesde(resultado.getDate(4));
+				reserva.setHasta(resultado.getDate(5));
+				
+				reservas.add(reserva);
+				
+			}
+	
+		return reservas;
+	}
+	
+	public ArrayList<Reserva> getReservasCliente (String dni) throws SQLException {
+		
+		ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+	
+		pst = con.prepareStatement("SELECT * FROM reservas WHERE dni = ?");
+		pst.setString(1, dni);
+		
+		pst.executeQuery();
+			resultado = pst.executeQuery();
+			
+			while(resultado.next() ) {
+				
+				Reserva reserva = new Reserva();
+				
+				reserva.setId(resultado.getInt(1));
+				reserva.setId_Habitacion(resultado.getInt(2));
+				reserva.setDni(resultado.getString(3));
+				reserva.setDesde(resultado.getDate(4));
+				reserva.setHasta(resultado.getDate(5));
+				
+				reservas.add(reserva);
+				
+			}
+		return reservas;
+	}
 
 	
 	

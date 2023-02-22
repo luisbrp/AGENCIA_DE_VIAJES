@@ -1,5 +1,6 @@
 package clases;
 
+import java.util.Date;
 import java.util.Scanner;
 
 import java.text.ParseException;
@@ -102,7 +103,29 @@ public class FormularioDeDatos {
 		id = reserva.getId();
 		return id;
 	}
+	
+	public static Date PedirFechaDesde (Scanner scan ) throws ParseException {
+		Date date; 
+	
+		SimpleDateFormat desde = new SimpleDateFormat("dd/MM/yyyy");
 		
+		System.out.println("Introduce cuando se realizo la reserva. En este formato por favor. (dd/MM/yyyy)");
+		date = desde.parse(scan.nextLine());
+
+		return date;
+	}
+	
+	public static Date PedirFechaHasta (Scanner scan) throws ParseException {
+		Date date;
+		
+		SimpleDateFormat hasta = new SimpleDateFormat("dd/MM/yyyy");
+		System.out.println("Introduce hasta cuando se realizo la reserva. En este formato por favor. (dd/MM/yyyy)");
+		date = hasta.parse(scan.nextLine());
+		
+		return date;
+	}
+	
+	
 	//formulario hotel
 		
 	public static Hotel pedirDatosHotel(Scanner scan) {

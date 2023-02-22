@@ -1,5 +1,6 @@
 package clases;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Scanner;
@@ -12,7 +13,6 @@ public class GestionDeReservas {
 	public static void run(Scanner scan) throws SQLException, ParseException  {
 		
 		GestorBBDD gbd = new GestorBBDD();
-		
 		Reserva reserva = new Reserva();
 		ArrayList<Reserva> reservas = new ArrayList<Reserva>(); 
 		int opcion_menu;
@@ -36,9 +36,6 @@ public class GestionDeReservas {
 				scan.nextLine();
 				gbd.conectar();
 				id = FormularioDeDatos.PedirIdReserva(id, scan);
-				gbd.conectar();
-				reserva= gbd.getReserva(id);
-				Visor.mostrarUnaReserva(reserva);
 				gbd.anularReserva(id);
 				gbd.cerrar();
 				break;
@@ -52,10 +49,20 @@ public class GestionDeReservas {
 			case Menu.MOSTRAR_RESERVAS:
 				scan.nextLine();
 				gbd.conectar();
-				reservas = gbd.getReservas(reservas);
+				reservas = gbd.getReservas();
+				reservas = gbd.getReservas();
 				Visor.mostrarReservas(reservas);
 				gbd.cerrar();
 				break;
+			case Menu.CONSULTAR_RESERVA:
+				gbd.conectar();
+				Visor.mostrarReservas(gbd.getReservaPorFecha(new Date(FormularioDeDatos.PedirFechaDesde(scan).getTime()), new Date(FormularioDeDatos.PedirFechaHasta(scan).getTime())));;
+				gbd.cerrar();
+				break;
+			case Menu.CONSTULAR_RESERVA_CLIENTE:
+				gbd.conectar();
+				Visor.mostrarReservas(gbd.getReservasCliente(FormularioDeDatos.pedirDniCliente(scan, dni)));
+				gbd.cerrar();
 			case Menu.SALIR:
 				break;
 			default:
