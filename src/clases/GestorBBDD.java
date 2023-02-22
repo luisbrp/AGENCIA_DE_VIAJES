@@ -362,7 +362,7 @@ public ArrayList <Habitacion> buscarHabitaciones (int idHotel) throws SQLExcepti
 		PreparedStatement pst;
 		ResultSet resultado;
 		
-		pst = con.prepareStatement("SELECT * FROM habitaciones WHERE id_hotel=?");
+		pst = con.prepareStatement("SELECT * FROM `habitaciones` WHERE id_hotel=?");
 		
 		pst.setInt(1, idHotel);
 		
@@ -375,7 +375,7 @@ public ArrayList <Habitacion> buscarHabitaciones (int idHotel) throws SQLExcepti
 		habitacion.setId(resultado.getInt(1));
 		habitacion.setId_hotel(resultado.getInt(2));
 		habitacion.setNumero(resultado.getString(3));
-		habitacion.setDescripcion(resultado.getNString(4));
+		habitacion.setDescripcion(resultado.getString(4));
 		habitacion.setPrecio(resultado.getInt(5));
 		
 		habitaciones.add(habitacion);
@@ -386,6 +386,10 @@ public ArrayList <Habitacion> buscarHabitaciones (int idHotel) throws SQLExcepti
 	
 	return habitaciones;
 	}
+
+
+
+
 	
 }
 
