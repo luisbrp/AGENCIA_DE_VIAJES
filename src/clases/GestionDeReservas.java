@@ -13,10 +13,6 @@ public class GestionDeReservas {
 	public static void run() throws SQLException, ParseException  {
 		Scanner scan = new Scanner(System.in);
 		GestorBBDD gbd = new GestorBBDD();
-		Date desde = null;
-		Date hasta = null;
-		visor visors = new visor();
-		Cliente cliente = new Cliente();
 		Reserva reserva = new Reserva();
 		ArrayList<Reserva> reservas = new ArrayList<Reserva>(); 
 		int opcion_menu;
@@ -49,14 +45,12 @@ public class GestionDeReservas {
 			case Menu.MOSTRAR_RESERVAS:
 				gbd.conectar();
 				reservas = gbd.getReservas(reservas);
-				visor.mostrarRervas(reservas);
+				visor.mostrarReservas(reservas);
 				gbd.cerrar();
 				break;
 			case Menu.CONSULTAR_RESERVA:
 				gbd.conectar();
-				reserva = FormularioDeDatos.PedirFechaReserva(reserva, scan);
-				gbd.getReservaPorFecha(desde, hasta);
-				visor.mostrarUnaReserva(reserva);
+				visor.mostrarReservas(gbd.getReservaPorFecha(new Date(FormularioDeDatos.PedirFechaDesde(scan).getTime()), new Date(FormularioDeDatos.PedirFechaHasta(scan).getTime())));;
 				gbd.cerrar();
 				break;
 			case Menu.SALIR:

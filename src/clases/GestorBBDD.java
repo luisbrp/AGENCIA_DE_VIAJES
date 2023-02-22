@@ -199,14 +199,15 @@ public class GestorBBDD extends Conector {
 		return reservas;
 	}
 	
-	public Reserva getReservaPorFecha(Date desde, Date hasta) throws SQLException {
-
+	public ArrayList<Reserva> getReservaPorFecha(Date desde, Date hasta) throws SQLException {
+		
+		ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+		
 		pst = con.prepareStatement("SELECT * FROM reservas WHERE desde>? AND hasta<?");
 		
 		pst.setDate(1, desde);
 		pst.setDate(2, hasta);
 	
-		resultado = null;
 		
 			resultado = pst.executeQuery();
 			
@@ -219,10 +220,11 @@ public class GestorBBDD extends Conector {
 				reserva.setDesde(resultado.getDate(4));
 				reserva.setHasta(resultado.getDate(5));
 				
-				visor.mostrarUnaReserva(getReservaPorFecha(desde, hasta));
+				reservas.add(reserva);
+				
 			}
 	
-		return reserva;
+		return reservas;
 	}
 
 	

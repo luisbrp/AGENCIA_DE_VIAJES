@@ -26,12 +26,12 @@ public class visor {
 		System.out.println(reserva.toString());
 	}
 	
-	public static void mostrarRervas (ArrayList<Reserva> reservas) {
+	public static void mostrarReservas (ArrayList<Reserva> reservas) {
 		System.out.println("Estas son todas reservas:");
 		for (int i = 0; i < reservas.size(); i++) {
 			Reserva reserva = reservas.get(i);
 			System.out.println(reserva.toString());
-		}
+		}	
 	}
 	
 	public static void mostrarHotel(Hotel hotel) {

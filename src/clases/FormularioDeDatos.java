@@ -102,20 +102,28 @@ public class FormularioDeDatos {
 		return id;
 	}
 	
-	public static Reserva PedirFechaReserva (Reserva reserva, Scanner scan ) throws ParseException {
-		
+	public static Date PedirFechaDesde (Scanner scan ) throws ParseException {
+		Date date; 
+	
 		SimpleDateFormat desde = new SimpleDateFormat("dd/MM/yyyy");
+		
 		System.out.println("Introduce cuando se realizo la reserva. En este formato por favor. (dd/MM/yyyy)");
-		reserva.setDesde(desde.parse(scan.nextLine()));
+		date = desde.parse(scan.nextLine());
+
+		return date;
+	}
+	
+	public static Date PedirFechaHasta (Scanner scan) throws ParseException {
+		Date date;
 		
 		SimpleDateFormat hasta = new SimpleDateFormat("dd/MM/yyyy");
 		System.out.println("Introduce hasta cuando se realizo la reserva. En este formato por favor. (dd/MM/yyyy)");
-		reserva.setHasta(hasta.parse(scan.nextLine()));
+		date = hasta.parse(scan.nextLine());
 		
-		
-		return reserva;
+		return date;
 	}
-		
+	
+	
 	//formulario hotel
 		
 	public static Hotel pedirDatosHotel(Scanner scan) {
