@@ -176,18 +176,18 @@ public class GestorBBDD extends Conector {
 		
 	}
 
-	public ArrayList<Reserva> getReservas(ArrayList<Reserva> reservas) throws SQLException {
-
+	public ArrayList<Reserva> getReservas() throws SQLException {
+		ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+		
 		pst = con.prepareStatement("SELECT * FROM reservas");
-
-		Reserva reserva = new Reserva();
 
 		resultado = null;
 
 		resultado = pst.executeQuery();
 
 		while (resultado.next()) {
-
+			Reserva reserva = new Reserva();
+			
 			reserva.setId(resultado.getInt(1));
 			reserva.setId_Habitacion(resultado.getInt(2));
 			reserva.setDni(resultado.getString(3));
@@ -213,7 +213,7 @@ public class GestorBBDD extends Conector {
 			
 			Reserva reserva = new Reserva();
 	
-			if (resultado.next()) {
+			while (resultado.next()) {
 				reserva.setId(resultado.getInt(1));
 				reserva.setId_Habitacion(resultado.getInt(2));
 				reserva.setDni(resultado.getString(3));
@@ -224,6 +224,32 @@ public class GestorBBDD extends Conector {
 				
 			}
 	
+		return reservas;
+	}
+	
+	public ArrayList<Reserva> getReservasCliente (String dni) throws SQLException {
+		
+		ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+	
+		pst = con.prepareStatement("SELECT * FROM reservas WHERE dni = ?");
+		pst.setString(1, dni);
+		
+		pst.executeQuery();
+			resultado = pst.executeQuery();
+			
+			while(resultado.next() ) {
+				
+				Reserva reserva = new Reserva();
+				
+				reserva.setId(resultado.getInt(1));
+				reserva.setId_Habitacion(resultado.getInt(2));
+				reserva.setDni(resultado.getString(3));
+				reserva.setDesde(resultado.getDate(4));
+				reserva.setHasta(resultado.getDate(5));
+				
+				reservas.add(reserva);
+				
+			}
 		return reservas;
 	}
 

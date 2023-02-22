@@ -32,7 +32,6 @@ public class GestionDeReservas {
 			case Menu.ANULAR_RESERVA:
 				gbd.conectar();
 				id = FormularioDeDatos.PedirIdReserva(id, scan);
-				gbd.conectar();
 				gbd.anularReserva(id);
 				gbd.cerrar();
 				break;
@@ -44,7 +43,7 @@ public class GestionDeReservas {
 				break;
 			case Menu.MOSTRAR_RESERVAS:
 				gbd.conectar();
-				reservas = gbd.getReservas(reservas);
+				reservas = gbd.getReservas();
 				visor.mostrarReservas(reservas);
 				gbd.cerrar();
 				break;
@@ -53,6 +52,10 @@ public class GestionDeReservas {
 				visor.mostrarReservas(gbd.getReservaPorFecha(new Date(FormularioDeDatos.PedirFechaDesde(scan).getTime()), new Date(FormularioDeDatos.PedirFechaHasta(scan).getTime())));;
 				gbd.cerrar();
 				break;
+			case Menu.CONSTULAR_RESERVA_CLIENTE:
+				gbd.conectar();
+				visor.mostrarReservas(gbd.getReservasCliente(FormularioDeDatos.pedirDniCliente(scan, dni)));
+				gbd.cerrar();
 			case Menu.SALIR:
 				break;
 			default:
