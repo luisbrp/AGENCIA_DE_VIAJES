@@ -31,7 +31,7 @@ public static void run() throws SQLException, ParseException {
 				break;
 			
 			case Menu.GESTIONAR_HOTELES:
-				
+				//GestionDeHoteles.run(scan);
 				break;
 				
 			}
